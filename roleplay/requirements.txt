@@ -1,0 +1,9 @@
+accelerate==0.21.0
+faiss-gpu==1.7.2
+numpy==1.26.4
+pandas==2.2.2
+protobuf==4.23.4
+sentence-transformers==2.2.2
+torchmetrics==0.11.0
+transformers==4.33.1
+gradio==4.33.0
