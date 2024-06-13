@@ -1,0 +1,4 @@
+{
+    "huggingface_local_path": "./index_1_9b_chat",
+    "bge_local_path": "./bge-large-zh-v1.5"
+}

@@ -1,0 +1,16 @@
+model:
+  name: model_name
+# WARNING: DO NOT USE 'DOT' IN MODEL PATH
+local_model_path: ./models/model_name
+
+task_datasets:
+- name: MMLU
+- name: CEVAL
+- name: CMMLU
+- name: ARC-c
+- name: ARC-e
+- name: HellaSwag
+- name: GSM8K
+- name: HumanEval
+
+version: 1.0.0
