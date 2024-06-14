@@ -166,9 +166,9 @@ with gr.Blocks(theme="soft") as demo:
             chatbot = gr.Chatbot(bubble_full_width=False, height=500, label='Index-1.9B')
             user_input = gr.Textbox(label="User", placeholder="Input your query here!", lines=8)
             with gr.Row():
-                submit = gr.Button("ð Submit")
-                clear = gr.Button("ð§¹ Clear")
-                regen = gr.Button("ð Regenerate")
+                submit = gr.Button("🚀 Submit")
+                clear = gr.Button("🧹 Clear")
+                regen = gr.Button("🔄 Regenerate")
                 reverse = gr.Button("⬅️ Reverse")
     
     submit.click(generate, inputs=[chatbot, user_input, top_k, top_p, temperature, repetition_penalty, max_dec_len, system_message],
