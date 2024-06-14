@@ -47,11 +47,11 @@ def hf_gen(dialog: List, top_k, top_p, temperature, repetition_penalty, max_dec_
     generation_kwargs = dict(
         enc,
         do_sample=True,
-        top_k=top_k,
-        top_p=top_p,
-        temperature=temperature,
-        repetition_penalty=repetition_penalty,
-        max_new_tokens=max_dec_len,
+        top_k=int(top_k),
+        top_p=float(top_p),
+        temperature=float(temperature),
+        repetition_penalty=float(repetition_penalty),
+        max_new_tokens=int(max_dec_len),
         pad_token_id=tokenizer.eos_token_id,
         streamer=streamer,
     )
