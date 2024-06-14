@@ -77,7 +77,7 @@ model = AutoModelForCausalLM.from_pretrained(args.model_path, torch_dtype=torch.
 model = model.eval()
 print('model loaded', args.model_path, model.device)
 
-system_message = "你是由哔哩哔哩人工智能平台部自主研发的大语言模型，名为“Index”。你能够根据用户传入的信息，帮助用户完成指定的任务，并生成恰当的、符合要求的回复。"
+system_message = "你是由哔哩哔哩自主研发的大语言模型，名为“Index”。你能够根据用户传入的信息，帮助用户完成指定的任务，并生成恰当的、符合要求的回复。"
 query = "续写 天不生我金坷垃"
 model_input = []
 model_input.append({"role": "system", "content": system_message})
