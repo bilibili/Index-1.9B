@@ -108,6 +108,28 @@ python demo/web_demo.py --port='port' --model_path='/path/to/model/'
 python demo/cli_demo.py  --model_path='/path/to/model/'
 ```
 
+### Openai Api Demo
+依赖flask，安装命令:
+```shell
+pip install flask==2.2.5
+```
+通过以下代码启动一个flask api接口
+```shell
+python demo/openai_demo.py --model_path='/path/to/model/'
+```
+通过命令行即可进行对话
+```shell
+curl http://127.0.0.1:8010/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+    "messages": [
+    {"role": "system", "content": "你是由哔哩哔哩自主研发的大语言模型，名为“Index”。你能够根据用户传入的信息，帮助用户完成指定的任务，并生成恰当的、符合要求的回复。"},
+    {"role": "user", "content": "花儿为什么这么红"}
+    ]
+    }'
+```
+
+
 ### Index-1.9B-Chat 输出示例
 - 以下是一些使用 `web_demo.py` 得到的 Index-1.9B-Chat 示例：
     ![gradio demo](media/chat_example_0.png)
