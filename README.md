@@ -129,6 +129,42 @@ python demo/cli_demo.py  --model_path='/path/to/model/'
 
 详细使用请前往 [roleplay](./roleplay)文件夹
 
+### 量化
+可以通过下面脚本进行int4量化，性能损失较少，进一步节省显存占用
+```python
+import torch
+import argparse
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    TextIteratorStreamer,
+    GenerationConfig,
+    BitsAndBytesConfig
+)
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--model_path', default="", type=str, help="")
+parser.add_argument('--save_model_path', default="", type=str, help="")
+args = parser.parse_args()
+
+tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.float16,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type="nf4",
+    llm_int8_threshold=6.0,
+    llm_int8_has_fp16_weight=False,
+)
+model = AutoModelForCausalLM.from_pretrained(args.model_path, 
+                                             device_map="auto",
+                                             torch_dtype=torch.float16,
+                                             quantization_config=quantization_config,
+                                             trust_remote_code=True)
+model.save_pretrained(args.save_model_path)
+tokenizer.save_pretrained(args.save_model_path)
+```
+
 ## 局限性与免责申明
 
 Index-1.9B在某些情况下可能会产生不准确、有偏见或其他令人反感的内容。模型生成内容时无法理解、表达个人观点或价值判断，其输出内容不代表模型开发者的观点和立场。因此，请谨慎使用模型生成的内容，用户在使用时应自行负责对其进行评估和验证，请勿将生成的有害内容进行传播，且在部署任何相关应用之前，开发人员应根据具体应用对模型进行安全测试和调优。
