@@ -131,6 +131,10 @@ python demo/cli_demo.py  --model_path='/path/to/model/'
 
 ### 量化
 可以通过下面脚本进行int4量化，性能损失较少，进一步节省显存占用
+```shell
+# 安装依赖
+pip install bitsandbytes==0.43.0
+```
 ```python
 import torch
 import argparse
