@@ -34,7 +34,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 评测代码基于[OpenCompass](https://github.com/open-compass/opencompass), 并做了适配性修改，详见[evaluate](./evaluate/)文件夹
 
 ## 模型下载
-| HuggingFace   | ModelScope (敬请期待)  |
+| HuggingFace   | ModelScope  |
 |:-------:|:-------:|
 | 🤗 [Index-1.9B-Chat](https://huggingface.co/IndexTeam/Index-1.9B-Chat) |[Index-1.9B-Chat](https://modelscope.cn/models/IndexTeam/Index-1.9B-Chat) |
 | 🤗 [Index-1.9B-Character](https://huggingface.co/IndexTeam/Index-1.9B-Character) (角色扮演)| [Index-1.9B-Character](https://modelscope.cn/models/IndexTeam/Index-1.9B-Character) (角色扮演)|
