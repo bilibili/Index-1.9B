@@ -68,7 +68,7 @@ from transformers import AutoTokenizer, pipeline
 
 # 注意！目录不能含有"."，可以替换成"_"
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_path', default="IndexTeam/Index-1.9B-Chat", type=str, help="")
+parser.add_argument('--model_path', default="./IndexTeam/Index-1.9B-Chat/", type=str, help="")
 parser.add_argument('--device', default="cpu", type=str, help="") # also could be "cuda" or "mps" for Apple silicon
 args = parser.parse_args()
 
