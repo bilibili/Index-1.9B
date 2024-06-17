@@ -4,6 +4,7 @@
 </h1>
 </div>
 web demo: https://huggingface.co/spaces/IndexTeam/Index-1.9B
+
 ## 模型介绍
 
 Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型： 
