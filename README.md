@@ -7,6 +7,8 @@
 ### 近期更新
 1. web demo: https://huggingface.co/spaces/IndexTeam/Index-1.9B
 2. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
+3. 交流群： ![group](media/group_qrcode.jpg)
+
 ## 模型介绍
 
 Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型： 
