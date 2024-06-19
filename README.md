@@ -3,11 +3,16 @@
   Index-1.9B
 </h1>
 </div>
+<p align="center">
+  在线体验:
+  <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B" target="_blank">Chat</a> 和
+  <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B-Character" target="_blank">角色扮演</a> |
+  交流群: <a href="media/group_qrcode.jpg" target="_blank">QQ群</a> 
+</p>
 
 ### 近期更新
-1. 在线体验Demo: [Chat](https://huggingface.co/spaces/IndexTeam/Index-1.9B) | [角色扮演](https://huggingface.co/spaces/IndexTeam/Index-1.9B-Character)
-2. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
-3. 交流群：[QQ群](media/group_qrcode.jpg)
+1. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
+2. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
 ## 模型介绍
 
