@@ -213,7 +213,9 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 ## 引用
 如果你觉得我们的工作对你有帮助，欢迎引用！
 
+```
 @article{Index,
   title={Index1.9B Technical Report},
   year={2024}
 }
+```
