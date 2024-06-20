@@ -162,7 +162,7 @@ def main():
         with gr.Row():
             with gr.Column(scale=1):
                 top_k = gr.Slider(0, 10, value=5, step=1, label="top_k")
-                top_p = gr.Slider(0, 1, value=0.8, step=0.1, label="top_p")
+                top_p = gr.Slider(0.0, 1.0, value=0.8, step=0.1, label="top_p")
                 temperature = gr.Slider(0.1, 2.0, value=0.85, step=0.1, label="temperature")
                 repetition_penalty = gr.Slider(0.1, 2.0, value=1.0, step=0.1, label="repetition_penalty")
                 max_dec_len = gr.Slider(1, 4096, value=512, step=1, label="max_dec_len")

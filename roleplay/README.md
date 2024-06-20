@@ -4,7 +4,7 @@
 # 🌏️ 下载模型权重
 下载以下模型到本地，并修改配置`config/config.json`
 * [bge-large-zh-v1.5](https://huggingface.co/BAAI/bge-large-zh-v1.5)
-* [index-1.9b]()
+* [Index-1.9B-Character](https://huggingface.co/IndexTeam/Index-1.9B-Character)
 
 # 🥳 配置环境
 1. 安装conda环境`conda create -n index python=3.10`
