@@ -145,7 +145,10 @@ curl http://127.0.0.1:8010/v1/chat/completions \
     ![gradio demo](media/chat_example_0.png)
 - 改变`System Message`，即刻拥有B站评论区老哥~
     ![gradio demo](media/chat_example_1.png)
-
+- 中译日
+    ![gradio demo](media/translate_example_0.png)
+- 日译中  
+    ![gradio demo](media/translate_example_1.png)
 ### 角色扮演
 我们同期开源了角色扮演模型，以及配套框架。
 ![gradio demo](roleplay/git_src/demo.png)
