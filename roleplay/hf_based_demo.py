@@ -25,8 +25,7 @@ config_data = load_json("config/config.json")
 model_path = config_data["huggingface_local_path"]
 character_path = "./character"
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float16,
-                                             trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float16,trust_remote_code=True)
 
 
 def generate_with_question(question, role_name):
@@ -76,11 +75,11 @@ def hf_gen(dialog: List, role_name, top_k, top_p, temperature, repetition_penalt
     generation_kwargs = dict(
         inputs,
         do_sample=True,
-        top_k=int(top_k),
-        top_p=float(top_p),
-        temperature=float(temperature),
-        repetition_penalty=float(repetition_penalty),
-        max_new_tokens=int(max_dec_len),
+        top_k=top_k,
+        top_p=top_p,
+        temperature=temperature,
+        repetition_penalty=repetition_penalty,
+        max_new_tokens=max_dec_len,
         pad_token_id=tokenizer.eos_token_id,
         streamer=streamer,
     )
@@ -163,7 +162,7 @@ def main():
         with gr.Row():
             with gr.Column(scale=1):
                 top_k = gr.Slider(0, 10, value=5, step=1, label="top_k")
-                top_p = gr.Slider(0.0, 1.0, value=0.8, step=0.1, label="top_p")
+                top_p = gr.Slider(0, 1, value=0.8, step=0.1, label="top_p")
                 temperature = gr.Slider(0.1, 2.0, value=0.85, step=0.1, label="temperature")
                 repetition_penalty = gr.Slider(0.1, 2.0, value=1.0, step=0.1, label="repetition_penalty")
                 max_dec_len = gr.Slider(1, 4096, value=512, step=1, label="max_dec_len")
@@ -174,7 +173,7 @@ def main():
             with gr.Column(scale=10):
                 chatbot = gr.Chatbot(bubble_full_width=False, height=400, label='Index-1.9B')
                 with gr.Row():
-                    role_name = gr.Textbox(label="Role name", placeholder="Input your rolename here!", lines=2)
+                    role_name = gr.Textbox(label="Role name", placeholder="Input your rolename here!", lines=2, value="三三")
                 user_input = gr.Textbox(label="User", placeholder="Input your query here!", lines=2)
                 with gr.Row():
                     submit = gr.Button("🚀 Submit")
