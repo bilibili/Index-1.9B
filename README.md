@@ -11,6 +11,7 @@
 </p>
 
 ### 近期更新
+
 1. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
 2. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
@@ -24,6 +25,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 
 
 ## 评测结果
+
 |模型|均分|英文均分|MMLU|CEVAL|CMMLU|HellaSwag|Arc-C|Arc-E|
 |----|----|----|----|----|----|----|----|----|
 |Google Gemma 2B|41.58|46.77|41.81|31.36|31.02|66.82|36.39|42.07|
@@ -44,6 +46,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 评测代码基于[OpenCompass](https://github.com/open-compass/opencompass), 并做了适配性修改，详见[evaluate](./evaluate/)文件夹
 
 ## 模型下载
+
 | HuggingFace   | ModelScope  |
 |:-------:|:-------:|
 | 🤗 [Index-1.9B-Chat](https://huggingface.co/IndexTeam/Index-1.9B-Chat) |[Index-1.9B-Chat](https://modelscope.cn/models/IndexTeam/Index-1.9B-Chat) |
@@ -102,6 +105,7 @@ print('Model:', model_output)
 ```
 
 ### 网页 Demo
+
 依赖Gradio，安装命令:
 ```shell
 pip install gradio==4.29.0
@@ -113,12 +117,14 @@ python demo/web_demo.py --port='port' --model_path='/path/to/model/'
 
 
 ### 终端 Demo
+
 通过以下代码启动一个终端demo，可使用 Index-1.9B-Chat 模型进行对话：
 ```shell
 python demo/cli_demo.py  --model_path='/path/to/model/'
 ```
 
 ### Openai Api Demo
+
 依赖flask，安装命令:
 ```shell
 pip install flask==2.2.5
@@ -141,6 +147,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 
 
 ### Index-1.9B-Chat 输出示例
+
 - 以下是一些使用 `web_demo.py` 得到的 Index-1.9B-Chat 示例：
     ![gradio demo](media/chat_example_0.png)
 - 改变`System Message`，即刻拥有B站评论区老哥~
@@ -160,11 +167,12 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 详细使用请前往 [roleplay](./roleplay)文件夹
 
 ### 量化
-可以通过下面脚本进行int4量化，性能损失较少，进一步节省显存占用
+
+依赖bitsandbytes，安装命令:
 ```shell
-# 安装依赖
 pip install bitsandbytes==0.43.0
 ```
+可以通过下面脚本进行int4量化，性能损失较少，进一步节省显存占用
 ```python
 import torch
 import argparse
@@ -213,7 +221,9 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 ## 引用
 如果你觉得我们的工作对你有帮助，欢迎引用！
 
+```
 @article{Index,
   title={Index1.9B Technical Report},
   year={2024}
 }
+```
