@@ -1,7 +1,7 @@
 # Index-1.9B-Chat Lora 微调
 
 ## **环境准备**
-请确保你的torch版本支持gpu训练，其他主要安装包的版本
+请确保你的torch版本高于2.0.0，并且支持gpu训练，其他主要安装包的版本
 ```bash
 pip install transformers==4.39.2
 pip install sentencepiece==0.1.99
