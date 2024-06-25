@@ -207,6 +207,9 @@ model.save_pretrained(args.save_model_path)
 tokenizer.save_pretrained(args.save_model_path)
 ```
 
+### Chat模型微调
+按照 [微调教程](https://github.com/bilibili/Index-1.9B/blob/main/finetune/README.md) 的步骤即可快速微调Index-1.9B-Chat模型。快来尝试吧，定制自己的专属Index模型！！！
+
 ## 局限性与免责申明
 
 Index-1.9B在某些情况下可能会产生不准确、有偏见或其他令人反感的内容。模型生成内容时无法理解、表达个人观点或价值判断，其输出内容不代表模型开发者的观点和立场。因此，请谨慎使用模型生成的内容，用户在使用时应自行负责对其进行评估和验证，请勿将生成的有害内容进行传播，且在部署任何相关应用之前，开发人员应根据具体应用对模型进行安全测试和调优。
