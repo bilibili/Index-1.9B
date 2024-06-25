@@ -229,5 +229,7 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 ```
 ## 二创
 chatllm.cpp：https://github.com/foldl/chatllm.cpp/blob/master/docs/rag.md#role-play-with-rag
+
 ollama：https://ollama.com/milkey/bilibili-index
+
 self llm: https://github.com/datawhalechina/self-llm/blob/master/bilibili_Index-1.9B/04-Index-1.9B-Chat%20Lora%20微调.md
