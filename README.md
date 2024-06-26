@@ -235,6 +235,8 @@ If you think our work is helpful to you, please feel free to cite it!
 }
 ```
 ## Recreation
+libllm: https://github.com/ling0322/libllm/blob/main/examples/python/run_bilibili_index.py
+
 chatllm.cpp：https://github.com/foldl/chatllm.cpp/blob/master/docs/rag.md#role-play-with-rag
 
 ollama：https://ollama.com/milkey/bilibili-index
