@@ -232,6 +232,8 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 }
 ```
 ## 二创
+libllm: https://github.com/ling0322/libllm/blob/main/examples/python/run_bilibili_index.py
+
 chatllm.cpp：https://github.com/foldl/chatllm.cpp/blob/master/docs/rag.md#role-play-with-rag
 
 ollama：https://ollama.com/milkey/bilibili-index
