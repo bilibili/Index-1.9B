@@ -4,6 +4,7 @@
 </h1>
 </div>
 <p align="center">
+  <a href="./README.md" target="_blank">README</a> |
   在线体验:
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B" target="_blank">Chat</a> 和
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B-Character" target="_blank">角色扮演</a> |
