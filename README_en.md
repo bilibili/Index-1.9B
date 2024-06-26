@@ -139,7 +139,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
     -d '{
     "messages": [
     {"role": "system", "content": "你是由哔哩哔哩自主研发的大语言模型，名为“Index”。你能够根据用户传入的信息，帮助用户完成指定的任务，并生成恰当的、符合要求的回复。"},
-    {"role": "user", "content": "Why are flowers so red?"}
+    {"role": "user", "content": "花儿为什么这么红？"}
     ]
     }'
 ```
@@ -147,9 +147,9 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 
 ### Index-1.9B-Chat Output Examples
 
-- Below are some examples using web_demo.py to get Index-1.9B-Chat outputs.
+- Below are some examples using `web_demo.py` to get Index-1.9B-Chat outputs.
     ![gradio demo](media/chat_example_0.png)
-- Change the System Message and instantly become a "Bilibili" comment section bro!
+- Change the `System Message` and instantly become a "Bilibili" comment section bro!
     ![gradio demo](media/chat_example_1.png)
 - Translate Chinese to Japanese
     ![gradio demo](media/translate_example_0.png)
@@ -172,7 +172,7 @@ Depends on bitsandbytes, installation command:
 ```shell
 pip install bitsandbytes==0.43.0
 ```
-You can perform int4 quantization using the script below, which has minimal performance loss and further saves video memory usage.
+You can use the following script to perform int4 quantization, which has less performance loss and further saves video memory usage.
 ```python
 import torch
 import argparse
@@ -207,7 +207,7 @@ model.save_pretrained(args.save_model_path)
 tokenizer.save_pretrained(args.save_model_path)
 ```
 
-### Fine-tuning the Chat Model
+### Fine-tuning
 
 Follow the steps in the [fine-tuning tutorial](https://github.com/bilibili/Index-1.9B/blob/main/finetune/README.md)  to quickly fine-tune the Index-1.9B-Chat model. Give it a try and customize your exclusive Index model!
 
@@ -219,12 +219,12 @@ We strongly advise against using these models to create or disseminate harmful i
 
 ## Model Open Source License
 
-Using the source code from this repository requires compliance with the [Apache-2.0](LICENSE). The use of the Index-1.9B model weights requires compliance with the [模型许可协议](INDEX_MODEL_LICENSE).
+Using the source code from this repository requires compliance with the [Apache-2.0](LICENSE). The use of the Index-1.9B model weights requires compliance with the [INDEX_MODEL_LICENSE](INDEX_MODEL_LICENSE).
 
 The Index-1.9B model weights are **fully open** for academic research and support **free commercial use**.
 
 ## Citation
-If you find our work helpful, feel free to cite it!
+If you think our work is helpful to you, please feel free to cite it!
 
 ```
 @article{Index,
