@@ -4,6 +4,7 @@
 </h1>
 </div>
 <p align="center">
+  <a href="./README_zh.md" target="_blank">README_zh</a> |
   Online:
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B" target="_blank">Chat</a> and
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B-Character" target="_blank">Role-playing</a> |
@@ -149,6 +150,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 
 - Below are some examples using `web_demo.py` to get Index-1.9B-Chat outputs.
     ![gradio demo](media/chat_example_0.png)
+    ![gradio demo](media/chat_example_2.png)
 - Change the `System Message` and instantly become a "Bilibili" comment section bro!
     ![gradio demo](media/chat_example_1.png)
 - Translate Chinese to Japanese
