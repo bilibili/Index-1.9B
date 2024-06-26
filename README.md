@@ -234,7 +234,7 @@ If you think our work is helpful to you, please feel free to cite it!
   year={2024}
 }
 ```
-## Recreation
+## Extended Works
 libllm: https://github.com/ling0322/libllm/blob/main/examples/python/run_bilibili_index.py
 
 chatllm.cpp：https://github.com/foldl/chatllm.cpp/blob/master/docs/rag.md#role-play-with-rag
