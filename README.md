@@ -151,7 +151,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 - Below are some examples using `web_demo.py` to get Index-1.9B-Chat outputs.
     ![gradio demo](media/chat_example_0.png)
     ![gradio demo](media/chat_example_2.png)
-- Change the `System Message` and instantly become a "Bilibili" comment section bro!
+- Change the `System Message` to role-play a stereotype of bilibili user!
     ![gradio demo](media/chat_example_1.png)
 - Translate Chinese to Japanese
     ![gradio demo](media/translate_example_0.png)
