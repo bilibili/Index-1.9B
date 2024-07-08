@@ -52,7 +52,6 @@ curl http://127.0.0.1:8010/v1/character/chat/completions
         }'
 ```
 
-
 ## 针对实时对话要求
 
 * 针对已经支持的角色
