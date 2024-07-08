@@ -23,6 +23,36 @@
     * 如果需要创建您自己的角色，请准备一个类似[character/三三.csv](character/三三.csv)的对话语料库（注意，文件名请与您要创建的角色名称保持一致）和对应角色的描述，点击`生成角色`即可创建成功。
     * 如果已经创建好对应的角色，请您直接在Role name里输入您想对话的角色，并输入query，点击submit，即可对话。
 
+## Openai API Demo
+
+先安装Flask:
+```shell
+pip install flask==3.0.3
+```
+用下面的命令启动一个flask服务,服务将使用`config/config.json`中的权重路径:
+```shell
+## 通过下面的命令可以直接体验三三
+python openai_demo.py 
+    --role_name=三三
+
+## 如果需要尝试新建角色，请用下面的方式启动
+python openai_demo.py 
+    --role_description='角色描述' 
+    --role_dialog='xxx.csv'
+    --role_name='角色名'
+```
+你可以通过下面的方式进行对话：
+```shell
+curl http://127.0.0.1:8010/v1/character/chat/completions 
+    -H "Content-Type: application/json" 
+    -d '{
+        "messages":[
+            {"role":"user","content":"你叫什么名字"},
+        ]
+        }'
+```
+
+
 ## 针对实时对话要求
 
 * 针对已经支持的角色
