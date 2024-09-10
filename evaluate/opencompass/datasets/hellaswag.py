@@ -49,6 +49,7 @@ class hellaswagDataset_V2(BaseDataset):
         dataset = Dataset.from_list(dataset)
         return dataset
 
+
 @LOAD_DATASET.register_module()
 class hellaswagDataset_V3(BaseDataset):
 

@@ -72,7 +72,7 @@ dataset_mapping_dict = {}
 
 needle_counts = ['2', '3', '4', '5']
 languages = ['en', 'zh']
-sizes = ['4k', '8k', '32k', '200k', '256k', '1000k']
+sizes = ['4k', '8k', '32k', '128k', '200k', '256k', '1000k']
 types = ['origin', 'parallel']
 
 for needle_count in needle_counts:
@@ -328,7 +328,7 @@ def visualize(df_raw, save_path: str,model_name: str ,dataset_type:str):
                 ha='center',
                 fontsize=12,
                 fontweight='normal')
-        ax.set_xlabel('Token Length', fontsize=13, fontweight='normal', labelpad=1)
+        ax.set_xlabel('Context Length (# Tokens)', fontsize=13, fontweight='normal', labelpad=1)
         ax.set_ylabel('Depth Percent(%)', fontsize=13, fontweight='normal', labelpad=1)
         converted_labels = [convert_to_k(value) for value in pivot_table.columns.values]
 
@@ -355,7 +355,7 @@ def visualize(df_raw, save_path: str,model_name: str ,dataset_type:str):
 
         new_save_path = os.path.join(directory_path, new_filename)
 
-        plt.savefig(new_save_path, format='png', bbox_inches='tight', pad_inches=0)
+        plt.savefig(new_save_path, format='png', bbox_inches='tight', pad_inches=0, dpi=300)
         print(f'Saved: {new_save_path}')
 
         plt.close()

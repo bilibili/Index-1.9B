@@ -27,7 +27,7 @@ LEval_patent_summ_infer_cfg = dict(
 )
 
 LEval_patent_summ_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_patent_summ_datasets = [
     dict(
         type=LEvalPatentSummDataset,
         abbr='LEval_patent_summ',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='patent_summ',
         reader_cfg=LEval_patent_summ_reader_cfg,
         infer_cfg=LEval_patent_summ_infer_cfg,

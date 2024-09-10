@@ -47,8 +47,8 @@ class TurboMindModel(BaseModel):
                  concurrency: int = 8,
                  max_seq_len: int = 2048,
                  meta_template: Optional[Dict] = None,
-                 engine_config: Optional[Dict] = None,
-                 gen_config: Optional[Dict] = None,
+                 engine_config: Dict = {},
+                 gen_config: Dict = {},
                  end_str: Optional[str] = None):
         super().__init__(path=path,
                          max_seq_len=max_seq_len,
@@ -59,9 +59,6 @@ class TurboMindModel(BaseModel):
         if engine_config is not None:
             from lmdeploy.messages import TurbomindEngineConfig
             engine_config = TurbomindEngineConfig(**engine_config)
-        if gen_config is not None:
-            from lmdeploy.messages import EngineGenerationConfig
-            gen_config = EngineGenerationConfig(**gen_config)
         self.logger = get_logger()
         tm_model = TurboMind.from_pretrained(path, engine_config=engine_config)
         self.tokenizer = tm_model.tokenizer
@@ -70,12 +67,15 @@ class TurboMindModel(BaseModel):
         ]
         self.generator_ids = [i + 1 for i in range(concurrency)]
         self.gen_config = gen_config
-        self.end_str = end_str
         self.major_version, self.minor_version, _ = version_info
+        self.end_str = end_str
 
     def generate(self,
                  inputs: List[str],
                  max_out_len: int = 512,
+                 stopping_criteria: List[str] = [],
+                 do_sample: Optional[bool] = None,
+                 temperature: int = 1,
                  **kwargs) -> List[str]:
         """Generate results given a list of inputs.
 
@@ -96,13 +96,22 @@ class TurboMindModel(BaseModel):
         ]
 
         gen_config = copy.deepcopy(self.gen_config)
-        if 'do_sample' in kwargs:
-            if kwargs['do_sample']:
-                gen_config.top_k = 1000
-                gen_config.temperature = kwargs.get('temperature', 1)
+        if do_sample is not None:
+            if do_sample:
+                gen_config['top_k'] = 1000
+                gen_config['temperature'] = temperature
             else:
-                gen_config.top_k = 1
-                gen_config.temperature = 0.01
+                gen_config['top_k'] = 1
+        if stopping_criteria:
+            stop_words = gen_config.get('stop_words', [])
+            for t in stopping_criteria:
+                t = self.tokenizer.encode(t, add_bos=False)
+                stop_words.append(t[0])
+            gen_config['stop_words'] = list(set(stop_words))
+        gen_config.setdefault('min_new_tokens', 1)
+
+        from lmdeploy.messages import EngineGenerationConfig
+        gen_config = EngineGenerationConfig(**gen_config)
 
         results = []
         for batch_input in batch_inputs:
@@ -118,6 +127,9 @@ class TurboMindModel(BaseModel):
                         [self.end_str] * len(batch_input),
                     ))
                 results += _results
+        if stopping_criteria:
+            for s in stopping_criteria:
+                results = [r.split(s)[0] for r in results]
         return results
 
     def get_token_len(self, prompt: str) -> int:

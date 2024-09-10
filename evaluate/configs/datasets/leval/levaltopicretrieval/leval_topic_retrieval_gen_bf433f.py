@@ -28,7 +28,7 @@ LEval_tr_infer_cfg = dict(
 )
 
 LEval_tr_eval_cfg = dict(
-    evaluator=dict(type=LEvalEMEvaluator), 
+    evaluator=dict(type=LEvalEMEvaluator),
     pred_postprocessor=dict(type=general_postprocess),
     pred_role='BOT'
 )
@@ -37,7 +37,7 @@ LEval_tr_datasets = [
     dict(
         type=LEvalTopicRetrievalDataset,
         abbr='LEval_topic_retrieval',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='topic_retrieval_longchat',
         reader_cfg=LEval_tr_reader_cfg,
         infer_cfg=LEval_tr_infer_cfg,

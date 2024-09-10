@@ -30,7 +30,7 @@ LongBench_passage_count_datasets = [
     dict(
         type=LongBenchpassage_countDataset,
         abbr='LongBench_passage_count',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='passage_count',
         reader_cfg=LongBench_passage_count_reader_cfg,
         infer_cfg=LongBench_passage_count_infer_cfg,

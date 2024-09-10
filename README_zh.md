@@ -12,9 +12,9 @@
 </p>
 
 ### 近期更新
-
-1. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
-2. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
+1. 开源32K长上下文模型Index-1.9B-32K，[Index-1.9B-32K长上下文技术报告.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
+2. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
+3. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
 ## 模型介绍
 
@@ -23,6 +23,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 - Index-1.9B pure : 基座模型的对照组，与base具有相同的参数和训练策略，不同之处在于我们严格过滤了该版本语料中所有指令相关的数据，以此来验证指令对benchmark的影响 
 - Index-1.9B chat : 基于index-1.9B base通过SFT和DPO对齐后的对话模型，我们发现由于我们预训练中引入了较多互联网社区语料，聊天的<b>趣味性</b>明显更强，并且拥有同级别模型中较强的<b>多语种</b>（尤其是东亚语种）互译能力 
 - Index-1.9B character : 在SFT和DPO的基础上引入了RAG来实现<b>fewshots角色扮演</b>定制
+- Index-1.9B-32K ： Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。
 
 
 ## 评测结果
@@ -54,7 +55,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 | 🤗 [Index-1.9B-Character](https://huggingface.co/IndexTeam/Index-1.9B-Character) (角色扮演)| [Index-1.9B-Character](https://modelscope.cn/models/IndexTeam/Index-1.9B-Character) (角色扮演)|
 | 🤗 [Index-1.9B-Base](https://huggingface.co/IndexTeam/Index-1.9B) | [Index-1.9B-Base](https://modelscope.cn/models/IndexTeam/Index-1.9B) |
 | 🤗 [Index-1.9B-Base-Pure](https://huggingface.co/IndexTeam/Index-1.9B-Pure) |  [Index-1.9B-Base-Pure](https://modelscope.cn/models/IndexTeam/Index-1.9B-Pure) 
-
+| 🤗 [Index-1.9B-32K](https://huggingface.co/IndexTeam/Index-1.9B-32K) (32K 长文本)|  [Index-1.9B-32K](https://modelscope.cn/models/IndexTeam/Index-1.9B-32K) (32K 长文本)
 
 ## 使用方法
 
@@ -147,7 +148,33 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 ```
 
 
-### Index-1.9B-Chat 输出示例
+---
+# Index-1.9B-32K 长文本模型简介
+## 模型简介
+Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
+
+Index-1.9B-32K **以极小的模型体积（体积约为GPT-4等模型的2%）实现了出色的长文本处理能力**。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
+<div style="text-align: center;">
+    <img src="media/pk-all.png" alt="" width="700">
+    <p><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比</strong></p>
+</div>
+
+Index-1.9B-32K在32K长度的大海捞针测试下，评测结果优异，如下图，评测结果只在（32K 长度，%10 深度）区域有一处黄斑（91.08分），其他范围表现优异，几乎全绿。
+<div style="text-align: center;">
+    <img src="media/needle-bench-en.png" alt="" width="900">
+    <p><strong>大海捞针评测</strong></p>
+</div>
+
+## Index-1.9B-32K模型下载、使用、技术报告：
+Index-1.9B-32K模型下载、使用方法、技术报告详见：
+
+[**Index-1.9B-32K长上下文技术报告.md**](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
+
+---
+---
+---
+# Index系列模型使用细节与声明
+## Index-1.9B-Chat 输出示例
 
 - 以下是一些使用 `web_demo.py` 得到的 Index-1.9B-Chat 示例：
     ![gradio demo](media/chat_example_0.png)
@@ -157,7 +184,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
     ![gradio demo](media/translate_example_0.png)
 - 日译中  
     ![gradio demo](media/translate_example_1.png)
-### 角色扮演
+## 角色扮演
 我们同期开源了角色扮演模型，以及配套框架。
 ![gradio demo](roleplay/git_src/demo.png)
 
@@ -167,7 +194,22 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 
 详细使用请前往 [roleplay](./roleplay)文件夹
 
-### 量化
+## 长文本翻译&总结（Index-1.9B-32K）
+- 运行长文本专用的交互工具：demo/cli_long_text_demo.py
+- 模型默认会读取该文件：data/user_long_text.txt，将对文本内容进行中文总结。
+- 可以新建一个窗口，实时修改文件内容，模型会读取最新的文件内容并总结。
+
+```shell
+cd demo/
+CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
+```
+- 运行&交互效果（翻译并总结哔哩哔哩公司于2024.8.22发布的英文财报  --- [英文财报原文在这里](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
+<div style="text-align: center;">
+    <img src="media/qa-mark.png" alt="" width="1000">
+    <p><strong>翻译总结（哔哩哔哩公司于2024.8.22发布的英文财报）</strong></p>
+</div>
+
+## 量化
 
 依赖bitsandbytes，安装命令:
 ```shell
@@ -208,7 +250,7 @@ model.save_pretrained(args.save_model_path)
 tokenizer.save_pretrained(args.save_model_path)
 ```
 
-### Chat模型微调
+## Chat模型微调
 按照 [微调教程](https://github.com/bilibili/Index-1.9B/blob/main/finetune/README.md) 的步骤即可快速微调Index-1.9B-Chat模型。快来尝试吧，定制自己的专属Index模型！！！
 
 ## 局限性与免责申明

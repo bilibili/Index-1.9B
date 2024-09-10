@@ -38,7 +38,7 @@ LEval_gsm100_datasets = [
     dict(
         type=LEvalGSM100Dataset,
         abbr='LEval_gsm100',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='gsm100',
         reader_cfg=LEval_gsm100_reader_cfg,
         infer_cfg=LEval_gsm100_infer_cfg,

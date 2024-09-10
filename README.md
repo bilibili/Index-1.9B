@@ -12,9 +12,9 @@
 </p>
 
 ### Recent Updates
-
-1. Adapted to llamacpp and Ollama, see [Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
-2. Open source Checkpoint before Decay available for research, see [Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
+1. Open-source 32K long-context model Index-1.9B-32K [Index-1.9B-32K_Long_Context_Technical_Report.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
+2. Adapted to llamacpp and Ollama, see [Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
+3. Open source Checkpoint before Decay available for research, see [Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
 ## Model Introduction
 
@@ -23,6 +23,7 @@ The Index-1.9B series is a lightweight version of the Index series models, inclu
 - Index-1.9B pure: Control version of the base model with the same parameters and training strategy, but strictly filtered out all instruction-related data from the corpus to verify the impact of instructions on benchmarks.
 - Index-1.9B chat: A dialogue model aligned with SFT and DPO based on the index-1.9B base. We found that due to the introduction of a lot of internet community corpus in our pre-training, the model has significantly more interesting chat capabilities and strong multilingual (especially East Asian languages) translation abilities compared to models of the same level.
 - Index-1.9B character: Introduces RAG on top of SFT and DPO to achieve <b>fewshots role-playing</b> customization.
+- Index-1.9B-32K: Index-1.9B-32K is a language model with only 1.9B parameters, but it supports a 32K context length (meaning this extremely, extremely small model can read documents of over 35,000 words in one go).
 
 ## Evaluation Results
 
@@ -53,7 +54,7 @@ Evaluation code is based on [OpenCompass](https://github.com/open-compass/openco
 | 🤗 [Index-1.9B-Character](https://huggingface.co/IndexTeam/Index-1.9B-Character) (Role-playing)| [Index-1.9B-Character](https://modelscope.cn/models/IndexTeam/Index-1.9B-Character) (Role-playing)|
 | 🤗 [Index-1.9B-Base](https://huggingface.co/IndexTeam/Index-1.9B) | [Index-1.9B-Base](https://modelscope.cn/models/IndexTeam/Index-1.9B) |
 | 🤗 [Index-1.9B-Base-Pure](https://huggingface.co/IndexTeam/Index-1.9B-Pure) |  [Index-1.9B-Base-Pure](https://modelscope.cn/models/IndexTeam/Index-1.9B-Pure) 
-
+| 🤗 [Index-1.9B-32K](https://huggingface.co/IndexTeam/Index-1.9B-32K) (32K Long Context)|  [Index-1.9B-32K](https://modelscope.cn/models/IndexTeam/Index-1.9B-32K) (32K Long Context)
 
 ## Usage Instructions
 
@@ -145,8 +146,32 @@ curl http://127.0.0.1:8010/v1/chat/completions \
     }'
 ```
 
+# Index-1.9B-32K Long Text Model Introduction
+## Model Overview
+Index-1.9B-32K is a language model with only 1.9 billion parameters, yet it supports a context length of 32K (meaning this extremely small model can read documents of over 35,000 words in one go). The model has undergone Continue Pre-Training and Supervised Fine-Tuning (SFT) specifically for texts longer than 32K tokens, based on carefully curated long-text training data and self-built long-text instruction sets. The model is now open-source on both Hugging Face and ModelScope.
 
-### Index-1.9B-Chat Output Examples
+**Despite its small size (about 2% of models like GPT-4), Index-1.9B-32K demonstrates excellent long-text processing capabilities**. Below are comparison results with GPT-4 and GPT-3.5-turbo-16k:
+<div style="text-align: center;">
+    <img src="media/pk-all.png" alt="" width="800">
+    <p><strong>Comparison of Index-1.9B-32K with GPT-4 and other models in long-text capability</strong></p>
+</div>
+
+In a 32K-length needle-in-a-haystack test, Index-1.9B-32K achieved excellent results, as shown in the figure below. The only exception was a small yellow spot (91.08 points) in the region of (32K length, 10% depth), with all other areas performing excellently in mostly green zones.
+<div style="text-align: center;">
+    <img src="media/needle-bench-en.png" alt="" width="900">
+    <p><strong>NeedleBench Evaluation</strong></p>
+</div>
+
+## Index-1.9B-32K Model Download, Usage, and Technical Report:
+For details on downloading, usage, and the technical report for Index-1.9B-32K, see:
+
+[**Index-1.9B-32K Long Context Technical Report.md**](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
+
+---
+---
+---
+# Details and Disclaimer for the Index Series Models
+## Index-1.9B-Chat Output Examples
 
 - Below are some examples using `web_demo.py` to get Index-1.9B-Chat outputs.
     ![gradio demo](media/chat_example_0.png)
@@ -158,7 +183,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 - Translate Japanese to Chinese 
     ![gradio demo](media/translate_example_1.png)
 
-### Role Playing
+## Role Playing
 We have simultaneously open-sourced the role-playing model and the accompanying framework.
 ![gradio demo](roleplay/git_src/demo.png)
 
@@ -168,7 +193,23 @@ We have simultaneously open-sourced the role-playing model and the accompanying 
 
 For detailed usage, please refer to the [roleplay](./roleplay) folder.
 
-### Quantization
+## Long Text Translation and Summary（Index-1.9B-32K）
+- Run the interactive tool for long text: demo/cli_long_text_demo.py
+- The model will, by default, read this file: data/user_long_text.txt and summarize the text in Chinese.
+- You can open a new window and modify the file content in real-time, and the model will read the updated file and summarize it.
+
+```shell
+cd demo/
+CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
+```
+- Run & Interaction Example (Translation and summarization of the Bilibili financial report released on 2024.8.22 in English --- [Original English report here](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
+<div style="text-align: center;">
+    <img src="media/qa-mark.png" alt="" width="1000">
+    <p><strong>Translation and Summary (Bilibili financial report released on 2024.8.22)</strong></p>
+</div>
+
+
+## Quantization
 
 Depends on bitsandbytes, installation command:
 ```shell
