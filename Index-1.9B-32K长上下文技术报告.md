@@ -6,7 +6,7 @@
   </h1>
 
 ---
-[Switch to English](https://huggingface.co/IndexTeam/Index-1.9B-32K/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md) 
+[Switch to English](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md) 
 </div>
 
 ---

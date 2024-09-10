@@ -6,7 +6,7 @@
   </h1>
 
 ---
-[切换到中文](https://huggingface.co/IndexTeam/Index-1.9B-32K/blob/main/Index-1.9B-32K长上下文技术报告.md)
+[切换到中文](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
 </div>
 
 ---
