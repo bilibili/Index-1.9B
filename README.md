@@ -151,21 +151,24 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 Index-1.9B-32K is a language model with only 1.9 billion parameters, yet it supports a context length of 32K (meaning this extremely small model can read documents of over 35,000 words in one go). The model has undergone Continue Pre-Training and Supervised Fine-Tuning (SFT) specifically for texts longer than 32K tokens, based on carefully curated long-text training data and self-built long-text instruction sets. The model is now open-source on both Hugging Face and ModelScope.
 
 **Despite its small size (about 2% of models like GPT-4), Index-1.9B-32K demonstrates excellent long-text processing capabilities**. Below are comparison results with GPT-4 and GPT-3.5-turbo-16k:
-<div style="text-align: center;">
+
+<p align="center">
     <img src="media/pk-all.png" alt="" width="800">
-    <p><strong>Comparison of Index-1.9B-32K with GPT-4 and other models in long-text capability</strong></p>
-</div>
+</p>
+<p align="center"><strong>Comparison of Index-1.9B-32K with GPT-4 and other models in long-text capability</strong></p>
 
 In a 32K-length needle-in-a-haystack test, Index-1.9B-32K achieved excellent results, as shown in the figure below. The only exception was a small yellow spot (91.08 points) in the region of (32K length, 10% depth), with all other areas performing excellently in mostly green zones.
-<div style="text-align: center;">
+<p align="center">
     <img src="media/needle-bench-en.png" alt="" width="900">
-    <p><strong>NeedleBench Evaluation</strong></p>
-</div>
+</p>
+<p align="center"><strong>NeedleBench Evaluation</strong></p>
 
 ## Index-1.9B-32K Model Download, Usage, and Technical Report:
 For details on downloading, usage, and the technical report for Index-1.9B-32K, see:
 
-[**Index-1.9B-32K Long Context Technical Report.md**](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
+<a href="https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md" style="color: blue;">
+    📖 <strong>Index-1.9B-32K Long Context Technical Report</strong>
+</a>
 
 ---
 ---
@@ -203,10 +206,11 @@ cd demo/
 CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
 ```
 - Run & Interaction Example (Translation and summarization of the Bilibili financial report released on 2024.8.22 in English --- [Original English report here](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
-<div style="text-align: center;">
+
+<p align="center">
     <img src="media/qa-mark.png" alt="" width="1000">
-    <p><strong>Translation and Summary (Bilibili financial report released on 2024.8.22)</strong></p>
-</div>
+</p>
+<p align="center"><strong>Translation and Summary (Bilibili financial report released on 2024.8.22)</strong></p>
 
 
 ## Quantization

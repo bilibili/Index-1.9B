@@ -154,21 +154,25 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
 
 Index-1.9B-32K **以极小的模型体积（体积约为GPT-4等模型的2%）实现了出色的长文本处理能力**。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
-<div style="text-align: center;">
+
+<p align="center">
     <img src="media/pk-all.png" alt="" width="700">
-    <p><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比</strong></p>
-</div>
+</p>
+<p align="center"><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比</strong></p>
+
 
 Index-1.9B-32K在32K长度的大海捞针测试下，评测结果优异，如下图，评测结果只在（32K 长度，%10 深度）区域有一处黄斑（91.08分），其他范围表现优异，几乎全绿。
-<div style="text-align: center;">
+<p align="center">
     <img src="media/needle-bench-en.png" alt="" width="900">
-    <p><strong>大海捞针评测</strong></p>
-</div>
+</p>
+<p align="center"><strong>大海捞针评测</strong></p>
 
 ## Index-1.9B-32K模型下载、使用、技术报告：
 Index-1.9B-32K模型下载、使用方法、技术报告详见：
 
-[**Index-1.9B-32K长上下文技术报告.md**](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
+<a href="https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md" style="color: blue;">
+    📖 <strong>Index-1.9B-32K长上下文技术报告</strong>
+</a>
 
 ---
 ---
@@ -204,10 +208,10 @@ cd demo/
 CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
 ```
 - 运行&交互效果（翻译并总结哔哩哔哩公司于2024.8.22发布的英文财报  --- [英文财报原文在这里](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
-<div style="text-align: center;">
+<p align="center">
     <img src="media/qa-mark.png" alt="" width="1000">
-    <p><strong>翻译总结（哔哩哔哩公司于2024.8.22发布的英文财报）</strong></p>
-</div>
+</p>
+<p align="center"><strong>翻译总结（哔哩哔哩公司于2024.8.22发布的英文财报）</strong></p>
 
 ## 量化
 

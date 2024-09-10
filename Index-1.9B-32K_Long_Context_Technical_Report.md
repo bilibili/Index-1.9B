@@ -1,5 +1,15 @@
-# Index-1.9B-32K Long Context Technical Report
 
+<div align="center">
+
+  <h1>
+    <font size="6">Index-1.9B-32K Long Context Technical Report</font>
+  </h1>
+
+---
+[切换到中文](https://huggingface.co/IndexTeam/Index-1.9B-32K/blob/main/README_zh.md)
+</div>
+
+---
 # Model and Introduction
 
 ## Index-1.9B-32K Introduction
@@ -7,10 +17,11 @@
 Index-1.9B-32K is a language model with only 1.9 billion parameters, yet it supports a context length of 32K (meaning this extremely small model can read documents of over 35,000 words in one go). The model has undergone Continue Pre-Training and Supervised Fine-Tuning (SFT) specifically for texts longer than 32K tokens, based on carefully curated long-text training data and self-built long-text instruction sets. The model is now open-source on both Hugging Face and ModelScope.
 
 Despite its small size (about 2% of models like GPT-4), Index-1.9B-32K demonstrates excellent long-text processing capabilities. Below are comparison results with GPT-4 and GPT-3.5-turbo-16k:
-<div style="text-align: center;">
+<p align="center">
     <img src="media/pk-all.png" alt="" width="800">
-    <p><strong>Comparison of Index-1.9B-32K with GPT-4 and other models in long-text capability</strong></p>
-</div>
+</p>
+<p align="center"><strong> Comparison of Index-1.9B-32K with GPT-4 and other models in long-text capability</strong></p>
+
 
 ## Model and Code Download:
 - Huggingface: <https://huggingface.co/IndexTeam/Index-1.9B-32K>
@@ -27,10 +38,11 @@ Index-1.9B-32K was further trained based on the already open-source Index-1.9B, 
    **\*(RLHF / DPO)**: Although we have experience with alignment training like RLHF and DPO, this version has not undergone RLHF/DPO training (RLHF/DPO will be added in future versions). The primary focus of this version is to hone the model's deep-level capabilities in Long Context.
 
 The training process of Index-1.9B-32K is shown below:
-<div style="text-align: center;">
+<p align="center">
     <img src="media/training.png" alt="" width="700">
-    <p><strong>Training process of Index-1.9B-32K</strong></p>
-</div>
+</p>
+<p align="center"><strong> Training process of Index-1.9B-32K</strong></p>
+
 
 ## Hyperparameters
 
@@ -47,16 +59,18 @@ The training process of Index-1.9B-32K is shown below:
 - We also noticed that many other companies use a Rope Base in the millions or even higher. For example, Gradient AI uses a Rope Base of more than a billion. We also tried increasing the Rope Base to several million, but comparison experiments showed that it did not improve performance.
 
 - Rope Base Calculation:
-<div style="text-align: center;">
+<p align="center">
     <img src="media/rope-eq.png" alt="" width="500">
-    <p><strong></strong></p>
-</div>
+</p>
+<p align="center"><strong> </strong></p>
+
 
 - Rope Base and Context Length values: As shown in the figure below, with a 32K context, a Rope Base of 32\*10000 is sufficient, falling in the red zone in the figure with a low perplexity.
-<div style="text-align: center;">
+<p align="center">
     <img src="media/rope.png" alt="" width="900">
-    <p><strong>Relationship between Rope Base and Perplexity</strong></p>
-</div>
+</p>
+<p align="center"><strong> Relationship between Rope Base and Perplexity</strong></p>
+
 
 
 ## Stage 1: Continue Pre-Training (32K)
@@ -79,10 +93,11 @@ We built a long-text pre-training corpus based on our self-constructed massive c
 
 - 73% of documents have token counts within 0-4K.
 - Long-text data (over 32K) accounts for less than 1%.
-<div style="text-align: center;">
+<p align="center">
     <img src="media/token-cnt.png" alt="" width="800">
-    <p><strong>Token length distribution of our corpus</strong></p>
-</div>
+</p>
+<p align="center"><strong> Token length distribution of our corpus</strong></p>
+
 
 
 ## Stage 2: SFT (32K)
@@ -93,10 +108,11 @@ We built a long-text pre-training corpus based on our self-constructed massive c
 - In multiple experiments, 2 epochs usually achieved good performance.
 - The training loss curve of the SFT process is shown below, where the model's performance improves rapidly within the first 100 steps.
 
-<div style="text-align: center;">
-    <img src="media/sft-train-loss.png" alt="SFT Training Loss Curve" width="700">
-    <p><strong>SFT Training Loss Curve</strong></p>
-</div>
+<p align="center">
+    <img src="media/sft-train-loss.png" alt="" width="700">
+</p>
+<p align="center"><strong> SFT Training Loss Curve</strong></p>
+
 
 ### Training Parameters
 
@@ -121,28 +137,31 @@ We built a long-text pre-training corpus based on our self-constructed massive c
 ### NeedleBench
 - In the 32K length NeedleBench test, the evaluation results of Index-1.9B-32K are shown below (needlebench_single_32k). You can see that the evaluation results show only one yellow spot (score: 91.08) in the (32K length, 10% depth) area, with excellent performance (mostly green) in other areas.
 - NeedleBench Introduction: [Needle in a Haystack Test](https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/needleinahaystack_eval.html) randomly inserts key information into long texts to form prompts for large language models (LLMs). It aims to evaluate whether large models can extract this key information from long texts and assess their ability to process long-text information extraction.
-<div style="text-align: center;">
+<p align="center">
     <img src="media/needle-bench-en.png" alt="" width="900">
-    <p><strong>NeedleBench Evaluation</strong></p>
-</div>
+</p>
+<p align="center"><strong> NeedleBench Evaluation</strong></p>
+
 
 ### LongBench
 - The score of Index-1.9B-32K in the LongBench evaluation is 35.23, and the comparison with GPT-4 and GPT-3.5-turbo-16k is shown below. 
 - LongBench Introduction: [LongBench](https://github.com/THUDM/LongBench) is a long-text dataset built by THUDM, consisting of 21 sub-tasks and 4750 test cases in total. It is the first bilingual long-text dataset in Chinese and English, with an average text length of 6711 words for English and 13386 characters for Chinese.
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/longbench-pk.png" alt="" width="700">
-    <p><strong>LongBench Evaluation</strong></p>
-</div>
+</p>
+<p align="center"><strong>LongBench Evaluation</strong></p>
+
 
 ### LEval
 - The score of Index-1.9B-32K in the LEval evaluation is 35.86, and the comparison with GPT-4 and GPT-3.5-turbo-16k is shown below. 
 - LEval Introduction: [LEval](https://github.com/OpenLMLab/LEval) is a long-text dataset built by OpenLMLab, consisting of 18 sub-tasks in areas such as law, economics, and science.
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/leval.png" alt="" width="700">
-    <p><strong>LEval Evaluation</strong></p>
-</div>
+</p>
+<p align="center"><strong> LEval Evaluation</strong></p>
+
 
 ## Alignment Evaluation and Short-Text Capability
 - Although Index-1.9B-32K achieves outstanding results in long-text(Long Context) capability, its short-text capability has declined.
@@ -172,10 +191,11 @@ Keep the first 0.5 \* max_prompt_len tokens and the last 0.5 \* max_prompt_len t
 
 We compared context extension methods that do not require training, such as Dynamic NTK. We used various scaling factors for Dynamic NTK, and a scaling factor of 8 was used for this evaluation.
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/longbench-ntk.png" alt="" width="700">
-    <p><strong>Comparison of Long Context Methods</strong></p>
-</div>
+</p>
+<p align="center"><strong> Comparison of Long Context Methods</strong></p>
+
 
 # Discussion
 
@@ -191,10 +211,11 @@ We compared context extension methods that do not require training, such as Dyna
 
 We initially believed that the model's perception of text length should gradually improve from short to long. Therefore, we attempted to construct a length-increasing dataset and train it sequentially. The model's loss dropped rapidly in the early stages but then rebounded and failed to decrease further. We speculate that this may be due to uneven data distribution, and we plan to conduct further research on this in the future.
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/pt-warmup-valid-loss.png" alt="" width="700">
-    <p><strong>Validation Loss Curve for Context Length Warmup Training</strong></p>
-</div>
+</p>
+<p align="center"><strong>Validation Loss Curve for Context Length Warmup Training</strong></p>
+
 
 
 ## Packing VS Non-Packing
@@ -341,10 +362,12 @@ cd demo/
 CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
 ```
 - Run & Interaction Example (Translation and summarization of the Bilibili financial report released on 2024.8.22 in English --- [Original English report here](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
-<div style="text-align: center;">
+
+<p align="center">
     <img src="media/qa-mark.png" alt="" width="900">
-    <p><strong>Translation and Summary (Bilibili financial report released on 2024.8.22)</strong></p>
-</div>
+</p>
+<p align="center"><strong> Translation and Summary (Bilibili financial report released on 2024.8.22) </strong></p>
+
 
 - **Performance Tuning**：As mentioned in the "Training Process" section above — "This version of the model has not undergone RLHF/DPO alignment training (RLHF/DPO will be added in subsequent versions)," its instruction-following capabilities may be insufficient for different tasks. If the performance in your task is unsatisfactory, consider modifying the prompt in cli_long_text_demo.py to optimize the task performance.
 - **Long Text Only**：As described in the "Evaluation" section above, this version of the model excels in long text processing but shows decreased performance in short text capabilities (such as casual conversations). If your primary use is for regular dialogue, we recommend using our other version [Index-1.9B-Chat](https://github.com/bilibili/Index-1.9B)

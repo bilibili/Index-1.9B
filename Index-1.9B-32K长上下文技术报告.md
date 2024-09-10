@@ -1,4 +1,16 @@
-# Index-1.9B-32K Long Context Technical Report
+
+<div align="center">
+
+  <h1>
+    <font size="6">Index-1.9B-32K长上下文技术报告</font>
+  </h1>
+
+---
+[Switch to English](https://huggingface.co/IndexTeam/Index-1.9B-32K/blob/main/README.md) 
+</div>
+
+---
+
 
 # 模型和简介
 
@@ -7,10 +19,12 @@
 Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
 
 Index-1.9B-32K 以极小的模型体积（约为 GPT-4 等模型的 2%），实现了出色的长文本处理能力。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
-<div style="text-align: center;">
+<p align="center">
     <img src="media/pk-all.png" alt="" width="800">
-    <p><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比</strong></p>
-</div>
+</p>
+<p align="center"><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比 </strong></p>
+
+
 
 ## 模型和代码下载：
 - Huggingface：<https://huggingface.co/IndexTeam/Index-1.9B-32K>
@@ -27,10 +41,11 @@ Index-1.9B-32K基于我们已经开源的 Index-1.9B 进行继续训练，进行
    **\*(RLHF / DPO)**：尽管我们已经具备强化学习(RLHF)、DPO 等对齐训练的经验，但是这个版本还为经过RLHF/DPO训练（后续版本将补充RLHF/DPO），集中精力攻坚模型在Long Context上的深层次能力仍是我们最优先的事情。
 
 Index-1.9B-32K的训练流程如下：
-<div style="text-align: center;">
+<p align="center">
     <img src="media/training.png" alt="" width="700">
-    <p><strong>Index-1.9B-32K的训练流程</strong></p>
-</div>
+</p>
+<p align="center"><strong> Index-1.9B-32K的训练流程</strong></p>
+
 
 ## 超参数
 
@@ -48,16 +63,17 @@ Index-1.9B-32K的训练流程如下：
 
 
 - Rope Base 的计算：
-<div style="text-align: center;">
+<p align="center">
     <img src="media/rope-eq.png" alt="" width="500">
-    <p><strong></strong></p>
-</div>
+</p>
+<p align="center"><strong> </strong></p>
+
 
 - Rope Base 和 Context Length 取值：如下图所示，在 32K 上下文情况下，32\*10000 的 Rope Base 已经足够，处于图中的红色区域，困惑度较低。
-<div style="text-align: center;">
+<p align="center">
     <img src="media/rope.png" alt="" width="900">
-    <p><strong>Rope Base与困惑度关系</strong></p>
-</div>
+</p>
+<p align="center"><strong>Rope Base与困惑度关系 </strong></p>
 
 
 ## 阶段1：继续预训练（32K）
@@ -80,10 +96,10 @@ Index-1.9B-32K的训练流程如下：
 
 - 73% 的文档的 Token 量处于 0~4K 之内。
 - 32K以上的长文本语料不足 1%。
-<div style="text-align: center;">
+<p align="center">
     <img src="media/token-cnt.png" alt="" width="800">
-    <p><strong>我们的语料库 Token 长度分布</strong></p>
-</div>
+</p>
+<p align="center"><strong>我们的语料库 Token 长度分布 </strong></p>
 
 
 ## 阶段2：SFT（32K）
@@ -94,10 +110,10 @@ Index-1.9B-32K的训练流程如下：
 - 在我们多次实验中，通常 2 个 epoch 就能达到较好的性能。
 - SFT 过程的训练集损失下降曲线如下，可以看到模型在前 100 步内性能急剧提升。
 
-<div style="text-align: center;">
-    <img src="media/sft-train-loss.png" alt="SFT 训练损失曲线" width="700">
-    <p><strong>SFT 训练损失曲线</strong></p>
-</div>
+<p align="center">
+    <img src="media/sft-train-loss.png" alt="" width="700">
+</p>
+<p align="center"><strong>SFT 训练损失曲线 </strong></p>
 
 ### 训练参数
 
@@ -122,28 +138,28 @@ Index-1.9B-32K的训练流程如下：
 ### NeedleBench（大海捞针）
 - Index-1.9B-32K在32K长度的大海捞针测试下，评测结果如下图（needlebench_single_32k），可以看到，评测结果只在（32K 长度，%10 深度）区域有一处黄斑（91.08分），其他范围表现优异，几乎全绿。
 - 大海捞针测试简介：[大海捞针测试](https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/needleinahaystack_eval.html)通过在长文本中随机插入关键信息，形成大型语言模型 (LLM) 的 Prompt，旨在检测大型模型是否能从长文本中提取出这些关键信息，从而评估模型处理长文本信息提取的能力。
-<div style="text-align: center;">
+<p align="center">
     <img src="media/needle-bench-en.png" alt="" width="900">
-    <p><strong>大海捞针评测</strong></p>
-</div>
+</p>
+<p align="center"><strong>大海捞针评测 </strong></p>
 
 ### LongBench
 - Index-1.9B-32K在 LongBench 评测上的得分为 35.23，与 GPT-4、 GPT-3.5-turbo-16k 的性能对比如下图。[详细分数请点击](#评测分数明细)
 - LongBench简介：[LongBench](https://github.com/THUDM/LongBench)是由 THUDM 构建的长文本数据集，由 21 个子任务构成，总计 4750 条测例。该数据集是第一个包含中英双语的长文本数据集，其中英语文本长度平均为 6711 词，中文文本平均长度为 13386 字。
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/longbench-pk.png" alt="" width="700">
-    <p><strong>LongBench 评测</strong></p>
-</div>
+</p>
+<p align="center"><strong>LongBench 评测 </strong></p>
 
 ### LEval
 - Index-1.9B-32K在 LEval 评测上的得分为 35.86，与 GPT-4、 GPT-3.5-turbo-16k 的性能对比如下图。[详细分数请点击](#评测分数明细)
 - LEval简介：[LEval](https://github.com/OpenLMLab/LEval)是由 OpenLMLab 构建的一个长文本数据集，由 18 个子任务组成，其中包含法律、经济、科技等各个领域的文本。
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/leval.png" alt="" width="700">
-    <p><strong>LEval 评测</strong></p>
-</div>
+</p>
+<p align="center"><strong> LEval 评测</strong></p>
 
 ## Alignment评测和短能力
 - 虽然Index-1.9B-32K的长文本能力获得极其优异的结果，但短文本能力有所下降。
@@ -173,10 +189,10 @@ Index-1.9B-32K的训练流程如下：
 
 我们对比了免训练的上下文扩展方法，例如 Dynamic NTK 等。其中，我们对 Dynamic NTK 使用了多种 scaling factor，本文评测时使用的 scaling factor 为 8。
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/longbench-ntk.png" alt="" width="700">
-    <p><strong>Long Context方法效果对比</strong></p>
-</div>
+</p>
+<p align="center"><strong> Long Context方法效果对比</strong></p>
 
 # 讨论
 
@@ -192,10 +208,10 @@ Index-1.9B-32K的训练流程如下：
 
 我们最初认为 LLM 对文本长度的感知能力应当逐步从短到长提升，因此尝试构建长度递增的数据集并按顺序进行训练。模型的损失（Loss）在初期下降迅速，但随后出现反弹且无法进一步下降。我们推测这可能与数据分布不均有关，后续将对此展开更深入的研究。
 
-<div style="text-align: center;">
+<p align="center">
     <img src="media/pt-warmup-valid-loss.png" alt="" width="700">
-    <p><strong>上下文长度预热训练的验证集损失曲线</strong></p>
-</div>
+</p>
+<p align="center"><strong> 上下文长度预热训练的验证集损失曲线</strong></p>
 
 
 ## Packing VS Non-Packing
@@ -342,10 +358,10 @@ cd demo/
 CUDA_VISIBLE_DEVICES=0 python cli_long_text_demo.py --model_path '/path/to/model/' --input_file_path data/user_long_text.txt
 ```
 - 运行&交互效果（翻译并总结哔哩哔哩公司于2024.8.22发布的英文财报  --- [英文财报原文在这里](https://github.com/bilibili/Index-1.9B/tree/main/demo/data/user_long_text.txt))：
-<div style="text-align: center;">
+<p align="center">
     <img src="media/qa-mark.png" alt="" width="900">
-    <p><strong>翻译总结（哔哩哔哩公司于2024.8.22发布的英文财报）</strong></p>
-</div>
+</p>
+<p align="center"><strong> 翻译总结（哔哩哔哩公司于2024.8.22发布的英文财报）</strong></p>
 
 - **效果调优**：正如在上文[训练过程](#训练过程)一节所述——“此版本模型尚未经过 RLHF/DPO 的对齐训练（后续版本将补充 RLHF/DPO）”，因此其在不同任务上的指令遵循能力可能不足。如果在你的任务中测试效果不理想，建议尝试修改 cli_long_text_demo.py 中的 prompt 以优化任务表现。
 - **仅限用于长文本**：如上文[Alignment评测和短能力](#评测)一节所述，此版本模型在长文本处理方面表现出色，但短文本能力（如普通聊天对话）有所下降。如果你主要用于普通的对话，建议使用我们的另一个版本[Index-1.9B-Chat](https://github.com/bilibili/Index-1.9B)
