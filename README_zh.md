@@ -12,7 +12,7 @@
 </p>
 
 ### 近期更新
-1. 开源32K长上下文模型Index-1.9B-32K，[Index-1.9B-32K长上下文技术报告.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
+1. 开源32K长上下文模型Index-1.9B-32K，详见：[Index-1.9B-32K长上下文技术报告.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
 2. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
 3. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
@@ -23,7 +23,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 - Index-1.9B pure : 基座模型的对照组，与base具有相同的参数和训练策略，不同之处在于我们严格过滤了该版本语料中所有指令相关的数据，以此来验证指令对benchmark的影响 
 - Index-1.9B chat : 基于index-1.9B base通过SFT和DPO对齐后的对话模型，我们发现由于我们预训练中引入了较多互联网社区语料，聊天的<b>趣味性</b>明显更强，并且拥有同级别模型中较强的<b>多语种</b>（尤其是东亚语种）互译能力 
 - Index-1.9B character : 在SFT和DPO的基础上引入了RAG来实现<b>fewshots角色扮演</b>定制
-- Index-1.9B-32K ： Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。
+- Index-1.9B-32K ： Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字以上的文档）。
 
 
 ## 评测结果
@@ -151,7 +151,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 ---
 # Index-1.9B-32K 长文本模型简介
 ## 模型简介
-Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
+Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字以上的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
 
 Index-1.9B-32K **以极小的模型体积（体积约为GPT-4等模型的2%）实现了出色的长文本处理能力**。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
 
@@ -174,7 +174,6 @@ Index-1.9B-32K模型下载、使用方法、技术报告详见：
     📖 <strong>Index-1.9B-32K长上下文技术报告</strong>
 </a>
 
----
 ---
 ---
 # Index系列模型使用细节与声明

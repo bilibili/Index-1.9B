@@ -12,7 +12,7 @@
 </p>
 
 ### Recent Updates
-1. Open-source 32K long-context model Index-1.9B-32K [Index-1.9B-32K_Long_Context_Technical_Report.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
+1. Open-source 32K long-context model Index-1.9B-32K. Details: [Index-1.9B-32K_Long_Context_Technical_Report.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
 2. Adapted to llamacpp and Ollama, see [Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
 3. Open source Checkpoint before Decay available for research, see [Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
 
@@ -170,7 +170,6 @@ For details on downloading, usage, and the technical report for Index-1.9B-32K, 
     📖 <strong>Index-1.9B-32K Long Context Technical Report</strong>
 </a>
 
----
 ---
 ---
 # Details and Disclaimer for the Index Series Models
