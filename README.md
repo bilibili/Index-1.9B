@@ -4,7 +4,7 @@
 </h1>
 </div>
 <p align="center">
-  <a href="./README_zh.md" target="_blank">README_zh</a> |
+  <a href="./README_zh.md" target="_blank">切换到中文</a> |
   Online:
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B" target="_blank">Chat</a> and
   <a href="https://huggingface.co/spaces/IndexTeam/Index-1.9B-Character" target="_blank">Role-playing</a> |
