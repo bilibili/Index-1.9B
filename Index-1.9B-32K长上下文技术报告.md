@@ -38,7 +38,7 @@ Index-1.9B-32K基于我们已经开源的 Index-1.9B 进行继续训练，进行
 1. **Long PT**：Long continue Pre-Train，长文本继续预训练，基于长数据进行持续预训练。
 2. **Long SFT**：长文本监督微调，基于长指令进行 SFT。
  
-   **\*(RLHF / DPO)**：尽管我们已经具备强化学习(RLHF)、DPO 等对齐训练的经验，但是这个版本还为经过RLHF/DPO训练（后续版本将补充RLHF/DPO），集中精力攻坚模型在Long Context上的深层次能力仍是我们最优先的事情。
+   **\*(RLHF / DPO)**：尽管我们已经具备强化学习(RLHF)、DPO 等对齐训练的经验，但是这个版本还未经过RLHF/DPO训练（后续版本将补充RLHF/DPO），集中精力攻坚模型在Long Context上的深层次能力仍是我们最优先的事情。
 
 Index-1.9B-32K的训练流程如下：
 <p align="center">
