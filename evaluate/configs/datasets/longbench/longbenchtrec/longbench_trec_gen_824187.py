@@ -31,7 +31,7 @@ LongBench_trec_datasets = [
     dict(
         type=LongBenchtrecDataset,
         abbr='LongBench_trec',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='trec',
         reader_cfg=LongBench_trec_reader_cfg,
         infer_cfg=LongBench_trec_infer_cfg,

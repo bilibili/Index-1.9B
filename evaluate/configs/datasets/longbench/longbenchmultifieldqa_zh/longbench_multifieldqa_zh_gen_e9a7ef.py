@@ -30,7 +30,7 @@ LongBench_multifieldqa_zh_datasets = [
     dict(
         type=LongBenchmultifieldqa_zhDataset,
         abbr='LongBench_multifieldqa_zh',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='multifieldqa_zh',
         reader_cfg=LongBench_multifieldqa_zh_reader_cfg,
         infer_cfg=LongBench_multifieldqa_zh_infer_cfg,

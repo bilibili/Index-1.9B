@@ -30,7 +30,7 @@ LongBench_hotpotqa_datasets = [
     dict(
         type=LongBenchhotpotqaDataset,
         abbr='LongBench_hotpotqa',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='hotpotqa',
         reader_cfg=LongBench_hotpotqa_reader_cfg,
         infer_cfg=LongBench_hotpotqa_infer_cfg,

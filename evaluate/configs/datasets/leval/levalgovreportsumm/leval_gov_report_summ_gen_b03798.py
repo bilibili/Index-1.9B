@@ -27,7 +27,7 @@ LEval_govreport_summ_infer_cfg = dict(
 )
 
 LEval_govreport_summ_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_govreport_summ_datasets = [
     dict(
         type=LEvalGovReportSummDataset,
         abbr='LEval_gov_report_summ',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='gov_report_summ',
         reader_cfg=LEval_govreport_summ_reader_cfg,
         infer_cfg=LEval_govreport_summ_infer_cfg,
