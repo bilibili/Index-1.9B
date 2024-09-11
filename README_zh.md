@@ -154,12 +154,11 @@ curl http://127.0.0.1:8010/v1/chat/completions \
 ## 模型简介
 Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字以上的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
 
-Index-1.9B-32K **以极小的模型体积（体积约为GPT-4等模型的2%）实现了出色的长文本处理能力**。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
-
+Index-1.9B-32K 以极小的模型体积（约为 GPT-4 等模型的 2%），实现了出色的长文本处理能力。如下图，我们1.9B尺寸的模型分数甚至远超7B尺寸的模型。以下为与 GPT-4、Qwen2等模型的对比：
 <p align="center">
-    <img src="media/pk-all.png" alt="" width="700">
+    <img src="media/pk-all.png" alt="" width="800">
 </p>
-<p align="center"><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比</strong></p>
+<p align="center"><strong>Index-1.9B-32K与GPT-4、Qwen2等模型长文本能力对比 </strong></p>
 
 
 Index-1.9B-32K在32K长度的大海捞针测试下，评测结果优异，如下图，评测结果只在（32K 长度，%10 深度）区域有一处黄斑（91.08分），其他范围表现优异，几乎全绿。
