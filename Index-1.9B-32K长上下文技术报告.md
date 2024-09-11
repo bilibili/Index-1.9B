@@ -18,11 +18,11 @@
 
 Index-1.9B-32K 是一个仅有 1.9B 参数、却具备 32K 上下文长度的语言模型（这意味着，这个超小精灵可以一次性读完 3.5 万字以上的文档）。该模型专门针对 32K 以上的长文本进行了持续预训练（Continue Pre-Train）和监督微调（SFT），主要基于我们精心清洗的长文本预训练语料、自建的长文本指令集进行训练。目前，我们已在 Hugging Face 和 ModelScope 上同步开源。
 
-Index-1.9B-32K 以极小的模型体积（约为 GPT-4 等模型的 2%），实现了出色的长文本处理能力。以下为与 GPT-4、GPT-3.5-turbo-16k 的对比评测结果：
+Index-1.9B-32K 以极小的模型体积（约为 GPT-4 等模型的 2%），实现了出色的长文本处理能力。如下图，我们1.9B尺寸的模型分数甚至远超7B尺寸的模型。以下为与 GPT-4、Qwen2等模型的对比：
 <p align="center">
     <img src="media/pk-all.png" alt="" width="800">
 </p>
-<p align="center"><strong>Index-1.9B-32K与GPT-4等模型的长文本能力对比 </strong></p>
+<p align="center"><strong>Index-1.9B-32K与GPT-4、Qwen2等模型长文本能力对比 </strong></p>
 
 
 
@@ -143,23 +143,17 @@ Index-1.9B-32K的训练流程如下：
 </p>
 <p align="center"><strong>大海捞针评测 </strong></p>
 
-### LongBench
-- Index-1.9B-32K在 LongBench 评测上的得分为 35.23，与 GPT-4、 GPT-3.5-turbo-16k 的性能对比如下图。[详细分数请点击](#评测分数明细)
+### LongBench和LEval
+- Index-1.9B-32K在 LongBench 评测上的得分为 35.23，在 LEval 评测上的得分为 35.86。[详细分数请点击](#评测分数明细)
 - LongBench简介：[LongBench](https://github.com/THUDM/LongBench)是由 THUDM 构建的长文本数据集，由 21 个子任务构成，总计 4750 条测例。该数据集是第一个包含中英双语的长文本数据集，其中英语文本长度平均为 6711 词，中文文本平均长度为 13386 字。
-
-<p align="center">
-    <img src="media/longbench-pk.png" alt="" width="700">
-</p>
-<p align="center"><strong>LongBench 评测 </strong></p>
-
-### LEval
-- Index-1.9B-32K在 LEval 评测上的得分为 35.86，与 GPT-4、 GPT-3.5-turbo-16k 的性能对比如下图。[详细分数请点击](#评测分数明细)
 - LEval简介：[LEval](https://github.com/OpenLMLab/LEval)是由 OpenLMLab 构建的一个长文本数据集，由 18 个子任务组成，其中包含法律、经济、科技等各个领域的文本。
-
+- 如下图，我们1.9B尺寸的模型分数甚至远超7B尺寸的模型：
 <p align="center">
-    <img src="media/leval.png" alt="" width="700">
+    <img src="media/pk-all.png" alt="" width="800">
 </p>
-<p align="center"><strong> LEval 评测</strong></p>
+<p align="center"><strong>Index-1.9B-32K与GPT-4、Qwen2等模型长文本能力对比 </strong></p>
+
+
 
 ## Alignment评测和短能力
 - 虽然Index-1.9B-32K的长文本能力获得极其优异的结果，但短文本能力有所下降。
@@ -227,69 +221,74 @@ Index-1.9B-32K的训练流程如下：
 
 ## LEval 
 
-详细得分如下表，GPT-4和GPT-3.5-turbo-16k的得分摘自
+详细得分如下表：
+- GPT-4和longchat-7b-v1.5-32k的得分摘自
 [这里](https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/longeval.html#l-eval)
+- Index-1.9B-32K、Qwen2-1.5B-Instruct的得分是我们基于opencompass运行得出
 
-| **dataset**             | **Index-1.9B-32K** | **GPT-4**   | **GPT-3.5-turbo-16k** |
-|-------------------------|--------------------|-------------|-----------------------|
-| **LEval Exact Match**    | **41.54**          | **81.434**  | **68.984**            |
-| LEval_coursera           | 41.28              | 61.05       | 50                    |
-| LEval_gsm100             | 27                 | 92          | 78                    |
-| LEval_quality            | 50                 | 81.19       | 62.87                 |
-| LEval_tpo                | 65.43              | 72.93       | 74.72                 |
-| LEval_topic_retrieval    | 24                 | 100         | 79.33                 |
-| **LEval Gen (ROUGE)**    | **30.17**          | **41.539**  | **41.279**            |
-| LEval_financialqa        | 39.97              | 53.49       | 50.32                 |
-| LEval_gov_report_summ    | 40.77              | 50.84       | 50.48                 |
-| LEval_legal_contract_qa  | 14.02              | 31.23       | 27.97                 |
-| LEval_meeting_summ       | 28.54              | 31.44       | 33.54                 |
-| LEval_multidocqa         | 22.91              | 37.81       | 35.84                 |
-| LEval_narrativeqa        | 15.87              | 25.87       | 25.73                 |
-| LEval_nq                 | 49.02              | 67.36       | 66.91                 |
-| LEval_news_summ          | 27.93              | 34.52       | 40.41                 |
-| LEval_paper_assistant    | 35.35              | 42.26       | 41.76                 |
-| LEval_patent_summ        | 33.6               | 48.61       | 50.62                 |
-| LEval_review_summ        | 25.16              | 31.98       | 33.37                 |
-| LEval_scientificqa       | 34.39              | 49.76       | 48.32                 |
-| LEval_tvshow_summ        | 24.74              | 34.84       | 31.36                 |
-| **Average**              | **35.86**          | **61.49**   | **65.03**             |
+| **Dataset**                        | **Index-1.9B-32K** | **Qwen2-1.5B-Instruct** | **longchat-7b-v1.5-32k** | **GPT-4**   |
+|---------------------------------|----------------|---------------------|----------------------|---------|
+| **LEval Exact Match (Acc)**         | 41.542         | 46.412              | 21.008               | 81.434  |
+| LEval_coursera                  | 41.28          | 45.93               | 27.91                | 61.05   |
+| LEval_gsm100                    | 27             | 42                  | 5                    | 92      |
+| LEval_quality                   | 50             | 44.55               | 29.7                 | 81.19   |
+| LEval_tpo                       | 65.43          | 66.91               | 17.1                 | 72.93   |
+| LEval_topic_retrieval           | 24             | 32.67               | 25.33                | 100     |
+| **LEval Gen (ROUGE)**               | 30.17461538    | 32.33692308         | 26.80076923          | 41.53923077 |
+| LEval_financialqa               | 39.97          | 41.23               | 34.07                | 53.49   |
+| LEval_gov_report_summ           | 40.77          | 37.43               | 36.52                | 50.84   |
+| LEval_legal_contract_qa         | 14.02          | 28.07               | 13.32                | 31.23   |
+| LEval_meeting_summ              | 28.54          | 27.43               | 22.32                | 31.44   |
+| LEval_multidocqa                | 22.91          | 29.91               | 21.85                | 37.81   |
+| LEval_narrativeqa               | 15.87          | 21.03               | 16.87                | 25.87   |
+| LEval_nq                        | 49.02          | 34.48               | 35.02                | 67.36   |
+| LEval_news_summ                 | 27.93          | 28.17               | 30.33                | 34.52   |
+| LEval_paper_assistant           | 35.35          | 32.63               | 30.42                | 42.26   |
+| LEval_patent_summ               | 33.6           | 47.72               | 41.6                 | 48.61   |
+| LEval_review_summ               | 25.16          | 27.01               | 20.02                | 31.98   |
+| LEval_scientificqa              | 34.39          | 37.63               | 20.98                | 49.76   |
+| LEval_tvshow_summ               | 24.74          | 27.64               | 25.09                | 34.84   |
+| **Average**                         | 35.8583    | 39.3745      | 23.9044        | 61.4866 |
+
 
 
 ## LongBench
 
-详细得分如下表，GPT-4和GPT-3.5-turbo-16k的得分摘自
+- GPT-4和longchat-7b-v1.5-32k的得分摘自
 [这里](https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/longeval.html#longbench)
+- Index-1.9B-32K、Qwen2-1.5B-Instruct的得分是我们基于opencompass运行得出
 
-| **LongBench**        | **Index-1.9B-32K** | **GPT-4**   | **GPT-3.5-turbo-16k** |
-|----------------------|--------------------|-------------|-----------------------|
-| **Single-Document QA** | **37.305**         | **48.37**   | **46.37**             |
-| NarrativeQA          | 19.1               | 31.20       | 25.79                 |
-| Qasper               | 32.47              | 42.77       | 43.40                 |
-| MultiFieldQA-en      | 43.23              | 55.10       | 54.35                 |
-| MultiFieldQA-zh      | 54.42              | 64.40       | 61.92                 |
-| **Multi-Document QA**| **25.9375**         | **50.89**   | **37.77**             |
-| HotpotQA             | 33.83              | 59.85       | 52.49                 |
-| 2WikiMQA             | 26.87              | 67.52       | 41.70                 |
-| Musique              | 16.21              | 37.53       | 27.50                 |
-| DuReader (zh)        | 26.84              | 38.65       | 29.37                 |
-| **Summarization**    | **17.46**           | **25.13**   | **24.38**             |
-| GovReport            | 17.3               | 32.09       | 29.92                 |
-| QMSum                | 17.97              | 24.37       | 23.67                 |
-| Multi_news           | 15.66              | 28.52       | 27.05                 |
-| VCSUM (zh)           | 18.91              | 15.54       | 16.88                 |
-| **Few-shot Learning**| **51.0425**         | **64.63**   | **60.98**             |
-| TREC                 | 59.5               | 78.50       | 73.50                 |
-| TriviaQA             | 83.87              | 92.19       | 92.75                 |
-| SAMSum               | 34.3               | 46.32       | 43.16                 |
-| LSHT (zh)            | 26.5               | 41.50       | 34.50                 |
-| **Synthetic Tasks**  | **15.3333**         | **59.83**   | **52.83**             |
-| Passage Count        | 0                  | 8.50        | 3.00                  |
-| PassageRetrieval-en  | 24                 | 75.00       | 73.00                 |
-| PassageRetrieval-zh  | 22                 | 96.00       | 82.50                 |
-| **Code Completion**  | **64.335**          | **57.34**   | **54.72**             |
-| LCC                  | 66.4               | 59.25       | 53.49                 |
-| RepoBench-P          | 62.27              | 55.42       | 55.95                 |
-| **Average**          | **35.23**           | **51.03**   | **46.17**             |
+| **LongBench**              | **Index-1.9B-32K** | **Qwen2-1.5B-Instruct** | **longchat-7b-v1.5-32k** | **GPT-4**   |
+|------------------------|----------------|---------------------|----------------------|---------|
+| **Single-Document QA**      | 37.305         | 32.72               | 31.625               | 48.3675 |
+| NarrativeQA             | 19.1           | 15.93               | 19.19                | 31.2    |
+| Qasper                 | 32.47          | 29.3                | 30.36                | 42.77   |
+| MultiFieldQA-en         | 43.23          | 40.74               | 44.6                 | 55.1    |
+| MultiFieldQA-zh         | 54.42          | 44.91               | 32.35                | 64.4    |
+| **Multi-Document QA**       | 25.9375        | 24.04               | 22.54                | 50.8875 |
+| HotpotQA               | 33.83          | 30.09               | 34.43                | 59.85   |
+| 2WikiMQA               | 26.87          | 22.57               | 23.06                | 67.52   |
+| Musique                | 16.21          | 15.12               | 12.42                | 37.53   |
+| DuReader (zh)           | 26.84          | 28.38               | 20.25                | 38.65   |
+| **Summarization**           | 17.46          | 17.015              | 23.025               | 25.13   |
+| GovReport              | 17.3           | 18.63               | 29.83                | 32.09   |
+| QMSum                  | 17.97          | 18.41               | 22.71                | 24.37   |
+| Multi_news             | 15.66          | 15.19               | 26.1                 | 28.52   |
+| VCSUM (zh)             | 18.91          | 15.83               | 13.46                | 15.54   |
+| **Few-shot Learning**       | 51.0425        | 30.6725             | 34.6625              | 64.6275 |
+| TREC                   | 59.5           | 8                   | 29.23                | 78.5    |
+| TriviaQA               | 83.87          | 74.46               | 64.19                | 92.19   |
+| SAMSum                 | 34.3           | 29.23               | 25.23                | 46.32   |
+| LSHT (zh)              | 26.5           | 11                  | 20                   | 41.5    |
+| **Synthetic Tasks**         | 15.333    | 7.98                | 12.167          | 59.833 |
+| Passage Count           | 0              | 5                   | 1                    | 8.5     |
+| PassageRetrieval-en     | 24             | 11.94               | 20.5                 | 75      |
+| PassageRetrieval-zh     | 22             | 7                   | 15                   | 96      |
+| **Code Completion**         | 64.335         | 29.91               | 51.82                | 57.335  |
+| LCC                    | 66.4           | 34.14               | 51.46                | 59.25   |
+| RepoBench-P            | 62.27          | 25.68               | 52.18                | 55.42   |
+| **Average**             | 35.2356   | 23.7229        | 29.3065      | 51.0301 |
+
 
 
 ## 其他Long Context技术研究对比：基于两阶段训练、Dynamic NTK、Naive Extrapolation
