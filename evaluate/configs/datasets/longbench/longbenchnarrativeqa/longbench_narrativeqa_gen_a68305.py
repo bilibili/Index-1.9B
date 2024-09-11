@@ -30,7 +30,7 @@ LongBench_narrativeqa_datasets = [
     dict(
         type=LongBenchnarrativeqaDataset,
         abbr='LongBench_narrativeqa',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='narrativeqa',
         reader_cfg=LongBench_narrativeqa_reader_cfg,
         infer_cfg=LongBench_narrativeqa_infer_cfg,

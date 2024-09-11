@@ -12,29 +12,29 @@ ARC_c_infer_cfg = dict(
     prompt_template=dict(
         type=PromptTemplate,
         template={
-            "A":
+            'A':
             dict(
                 round=[
-                    dict(role="HUMAN", prompt="Question: {question}\nAnswer: "),
-                    dict(role="BOT", prompt="{textA}")
+                    dict(role='HUMAN', prompt='Question: {question}\nAnswer: '),
+                    dict(role='BOT', prompt='{textA}')
                 ], ),
-            "B":
+            'B':
             dict(
                 round=[
-                    dict(role="HUMAN", prompt="Question: {question}\nAnswer: "),
-                    dict(role="BOT", prompt="{textB}")
+                    dict(role='HUMAN', prompt='Question: {question}\nAnswer: '),
+                    dict(role='BOT', prompt='{textB}')
                 ], ),
-            "C":
+            'C':
             dict(
                 round=[
-                    dict(role="HUMAN", prompt="Question: {question}\nAnswer: "),
-                    dict(role="BOT", prompt="{textC}")
+                    dict(role='HUMAN', prompt='Question: {question}\nAnswer: '),
+                    dict(role='BOT', prompt='{textC}')
                 ], ),
-            "D":
+            'D':
             dict(
                 round=[
-                    dict(role="HUMAN", prompt="Question: {question}\nAnswer: "),
-                    dict(role="BOT", prompt="{textD}")
+                    dict(role='HUMAN', prompt='Question: {question}\nAnswer: '),
+                    dict(role='BOT', prompt='{textD}')
                 ], ),
         }),
     retriever=dict(type=ZeroRetriever),
@@ -42,22 +42,11 @@ ARC_c_infer_cfg = dict(
 
 ARC_c_eval_cfg = dict(evaluator=dict(type=AccEvaluator))
 
-# ARC_c_datasets = [
-#     dict(
-#         type=ARCDataset,
-#         abbr='ARC-c',
-#         path='./data/ARC/ARC-c/ARC-Challenge-Dev.jsonl',
-#         reader_cfg=ARC_c_reader_cfg,
-#         infer_cfg=ARC_c_infer_cfg,
-#         eval_cfg=ARC_c_eval_cfg)
-# ]
-
-
 ARC_c_datasets = [
     dict(
         type=ARCDataset,
         abbr='ARC-c',
-        path='./data/ARC/ARC-c/ARC-Challenge-Test.jsonl',
+        path='./data/ARC/ARC-c/ARC-Challenge-Dev.jsonl',
         reader_cfg=ARC_c_reader_cfg,
         infer_cfg=ARC_c_infer_cfg,
         eval_cfg=ARC_c_eval_cfg)

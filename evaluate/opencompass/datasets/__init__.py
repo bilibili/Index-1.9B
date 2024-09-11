@@ -12,6 +12,7 @@ from .bustum import *  # noqa: F401, F403
 from .c3 import *  # noqa: F401, F403
 from .cb import *  # noqa: F401, F403
 from .ceval import *  # noqa: F401, F403
+from .charm import *  # noqa: F401, F403
 from .chembench import *  # noqa: F401, F403
 from .chid import *  # noqa: F401, F403
 from .cibench import *  # noqa: F401, F403
@@ -73,6 +74,7 @@ from .mbpp import *  # noqa: F401, F403
 from .medbench import *  # noqa: F401, F403
 from .mgsm import *  # noqa: F401, F403
 from .mmlu import *  # noqa: F401, F403
+from .mmlu_pro import *  # noqa: F401, F403
 from .MMLUArabic import *  # noqa: F401, F403
 from .multirc import *  # noqa: F401, F403
 from .narrativeqa import *  # noqa: F401, F403

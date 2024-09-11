@@ -28,7 +28,7 @@ LEval_tpo_infer_cfg = dict(
 )
 
 LEval_tpo_eval_cfg = dict(
-    evaluator=dict(type=AccEvaluator), 
+    evaluator=dict(type=AccEvaluator),
     pred_postprocessor=dict(type=first_capital_postprocess),
     pred_role='BOT'
 )
@@ -37,7 +37,7 @@ LEval_tpo_datasets = [
     dict(
         type=LEvalTPODataset,
         abbr='LEval_tpo',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='tpo',
         reader_cfg=LEval_tpo_reader_cfg,
         infer_cfg=LEval_tpo_infer_cfg,
