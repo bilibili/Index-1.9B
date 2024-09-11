@@ -353,7 +353,7 @@ pip install -r requirements.txt
 ```
 
 ## Running the Demo in Terminal
-- Run the interactive tool for long text: demo/cli_long_text_demo.py
+- Run the interactive tool for long text: **demo/cli_long_text_demo.py** （ **Note: `Index-1.9B-32K` can only be launched using this tool: `demo/cli_long_text_demo.py`!!!**）
 - The model will, by default, read this file: data/user_long_text.txt and summarize the text in Chinese.
 - You can open a new window and modify the file content in real-time, and the model will read the updated file and summarize it.
 

@@ -58,7 +58,7 @@ Index-1.9B系列是Index系列模型中的轻量版本，包含以下模型：
 | 🤗 [Index-1.9B-32K](https://huggingface.co/IndexTeam/Index-1.9B-32K) (32K 长文本)|  [Index-1.9B-32K](https://modelscope.cn/models/IndexTeam/Index-1.9B-32K) (32K 长文本)
 
 ## 使用方法
-
+ **注意: `Index-1.9B-32K` 仅可使用这个工具启动: `demo/cli_long_text_demo.py`!!!**
 ### 环境安装
 
 1. 下载本仓库：
@@ -119,6 +119,7 @@ python demo/web_demo.py --port='port' --model_path='/path/to/model/'
 
 
 ### 终端 Demo
+ **注意: `Index-1.9B-32K` 仅可使用这个工具启动: `demo/cli_long_text_demo.py`!!!**
 
 通过以下代码启动一个终端demo，可使用 Index-1.9B-Chat 模型进行对话：
 ```shell
@@ -198,7 +199,7 @@ Index-1.9B-32K模型下载、使用方法、技术报告详见：
 详细使用请前往 [roleplay](./roleplay)文件夹
 
 ## 长文本翻译&总结（Index-1.9B-32K）
-- 运行长文本专用的交互工具：demo/cli_long_text_demo.py
+- 运行长文本**专用**的交互工具：**demo/cli_long_text_demo.py**
 - 模型默认会读取该文件：data/user_long_text.txt，将对文本内容进行中文总结。
 - 可以新建一个窗口，实时修改文件内容，模型会读取最新的文件内容并总结。
 

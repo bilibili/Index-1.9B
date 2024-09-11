@@ -349,7 +349,7 @@ pip install -r requirements.txt
 ```
 
 ## 终端运行Demo
-- 运行长文本专用的交互工具：demo/cli_long_text_demo.py
+- 运行长文本**专用**的交互工具：**demo/cli_long_text_demo.py** （**注意: `Index-1.9B-32K` 仅限使用此工具启动**）
 - 模型默认会读取该文件：data/user_long_text.txt，将对文本内容进行中文总结。
 - 可以新建一个窗口，实时修改文件内容，模型会读取最新的文件内容并总结。
 

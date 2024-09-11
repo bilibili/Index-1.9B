@@ -57,7 +57,7 @@ Evaluation code is based on [OpenCompass](https://github.com/open-compass/openco
 | 🤗 [Index-1.9B-32K](https://huggingface.co/IndexTeam/Index-1.9B-32K) (32K Long Context)|  [Index-1.9B-32K](https://modelscope.cn/models/IndexTeam/Index-1.9B-32K) (32K Long Context)
 
 ## Usage Instructions
-
+-  **Note: `Index-1.9B-32K` can only be launched using this tool: `demo/cli_long_text_demo.py`!!!**
 ### Environment Setup
 
 1. Download this repository:
@@ -118,6 +118,7 @@ python demo/web_demo.py --port='port' --model_path='/path/to/model/'
 
 
 ### Terminal Demo
+ **Note: `Index-1.9B-32K` can only be launched using this tool: `demo/cli_long_text_demo.py`!!!**
 
 Start a terminal demo with the following code to use the Index-1.9B-Chat model for dialogue:
 ```shell
@@ -196,7 +197,7 @@ We have simultaneously open-sourced the role-playing model and the accompanying 
 For detailed usage, please refer to the [roleplay](./roleplay) folder.
 
 ## Long Text Translation and Summary（Index-1.9B-32K）
-- Run the interactive tool for long text: demo/cli_long_text_demo.py
+- Run the interactive tool for long text: **demo/cli_long_text_demo.py**
 - The model will, by default, read this file: data/user_long_text.txt and summarize the text in Chinese.
 - You can open a new window and modify the file content in real-time, and the model will read the updated file and summarize it.
 
