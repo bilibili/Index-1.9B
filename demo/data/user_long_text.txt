@@ -1,0 +1,79 @@
+Date: August 22, 2024
+Bilibili Inc. Announces Second Quarter 2024 Financial Results
+SHANGHAI, China, August 22, 2024 — Bilibili Inc. (“Bilibili” or the “Company”) (NASDAQ: BILI and HKEX: 9626), an iconic brand and a leading video community for young generations in China, today announced its unaudited financial results for the second quarter ended June 30, 2024.
+
+Second Quarter 2024 Highlights:
+ 	• Total net revenues were RMB6.13 billion (US$843.1 million), representing an increase of 16% year over year.
+ 	• Advertising revenues were RMB2.04 billion (US$280.4 million), representing an increase of 30% year over year.
+ 	• Mobile games revenues were RMB1.01 billion (US$138.6 million), representing an increase of 13% year over year.
+ 	• Gross profit was RMB1.83 billion (US$252.3 million), representing an increase of 49% year over year. Gross profit margin reached 29.9%, improving from 23.1% in the same period last year.
+ 	• Net loss was RMB608.1 million (US$83.7 million), narrowing by 61% year over year.
+ 	• Adjusted net loss1 was RMB271.0 million (US$37.3 million), narrowing by 72% year over year.
+ 	• Operating cash flow was RMB1.75 billion (US$240.9 million) in the second quarter of 2024, compared with negative RMB21.2 million for the same period last year.
+ 	• Average daily active users (DAUs) were 102.3 million, representing an increase of 6% year over year.
+
+“Our second quarter results highlight how we are accelerating our financial performance while cultivating a vibrant community,” said Mr. Rui Chen, chairman and chief executive officer of Bilibili. “This quarter, our DAUs increased by 6% year over year to over 102 million and MAUs grew to 336 million. Daily average time spent per user also grew to 99 minutes in the second quarter, compared with 94 minutes same period last year. As we further develop our community and integrate commercial offerings, we have increasingly enhanced our monetization efficiency. Our advertising revenues maintained strong momentum in the second quarter, growing 30% year over year. In June, we successfully launched our first strategy game San Guo: Mou Ding Tian Xia, attracting millions of players and showcasing our operational capabilities beyond ACG. We believe our enhanced commercialization capabilities will further unlock the value of our community, and position us well for profitability and future growth. As we move ahead, we remain dedicated to our founding vision: creating a platform for creators to shine and bringing users content they love.”
+
+Mr. Sam Fan, chief financial officer of Bilibili, said, “We further strengthened our commercialization capabilities in the second quarter, delivering accelerated year-over-year revenue growth, continued margin expansion and remarkable loss reduction. Total net revenues for the second quarter increased by 16% year over year to RMB6.13 billion. Our gross profit improved by 49% year over year, marking the eighth consecutive quarter of gross profit margin expansion, which reached 29.9% compared with 23.1% in the same period last year. As a result, our adjusted operating loss and adjusted net loss narrowed meaningfully by 69% and 72%, respectively, both on a year-over-year basis. Moreover, we generated RMB1.75 billion in operating cash flow in the second quarter, and our deferred revenue balance at the end of June 2024 also increased by RMB738 million compared with the end of March 2024, driven by strong mobile games and advertising performances. The solid progress in our financials has put us on the right track toward profitability and paved the way for sustainable growth in the future. ”
+
+Second Quarter 2024 Financial Results
+
+Total net revenues. Total net revenues were RMB6.13 billion (US$843.1 million) in the second quarter of 2024, representing an increase of 16% from the same period of 2023.
+
+Value-added services (VAS). Revenues from VAS were RMB2.57 billion (US$353.1 million), representing an increase of 11% from the same period of 2023, led by increases in the number of paying users for premium membership, live broadcasting and other value-added services.
+
+Advertising. Revenues from advertising were RMB2.04 billion (US$280.4 million), representing an increase of 30% from the same period of 2023, mainly attributable to the Company’s improved advertising product offerings and enhanced advertising efficiency.
+
+Mobile games. Revenues from mobile games were RMB1.01 billion (US$138.6 million), representing an increase of 13% from the same period of 2023, mainly due to the launch of the Company’s new exclusively licensed games, including San Guo: Mou Ding Tian Xia.
+
+IP derivatives and others. Revenues from IP derivatives and others were RMB516.4 million (US$71.1 million), representing a decrease of 4% from the same period of 2023.
+
+Cost of revenues. Cost of revenues was RMB4.29 billion (US$590.9 million), representing an increase of 5% from the same period of 2023. The increase was mainly due to higher revenue-sharing costs and was partially offset by lower content costs. Revenue-sharing costs, as a key component of cost of revenues, were RMB2.49 billion (US$342.0 million), representing an increase of 11% from the same period of 2023.
+
+Gross profit. Gross profit was RMB1.83 billion (US$252.3 million), representing an increase of 49% from the same period of 2023, mainly attributed to the growth in total net revenues while costs related to platform operations remained relatively stable.
+
+Total operating expenses. Total operating expenses were RMB2.42 billion (US$332.8 million), representing a decrease of 3% from the same period of 2023.
+
+Sales and marketing expenses. Sales and marketing expenses were RMB1.04 billion (US$142.5 million), representing a 13% increase from the same period of 2023. The increase was primarily attributable to increased marketing expenses for new game launches.
+
+General and administrative expenses. General and administrative expenses were RMB488.0 million (US$67.2 million), representing a 10% decrease from the same period of 2023. The decrease was primarily attributable to a decrease in the headcount of general and administrative personnel.
+
+Research and development expenses. Research and development expenses were RMB894.7 million (US$123.1 million), representing a 15% decrease from the same period of 2023. The decrease was mainly attributable to a decrease in the headcount of research and development personnel.
+
+Loss from operations. Loss from operations was RMB585.1 million (US$80.5 million), narrowing by 54% from the same period of 2023.
+
+Adjusted loss from operations1. Adjusted loss from operations was RMB283.9 million (US$39.1 million), narrowing by 69% from the same period of 2023.
+
+Total other (expenses)/income, net. Total other expenses were RMB29.2 million (US$4.0 million), compared with RMB246.6 million in the same period of 2023. The change was primarily attributable to a loss of RMB41.3 million on fair value change in investments in publicly traded companies in the second quarter of 2024, compared with a loss of RMB186.7 million in the same period of 2023.
+
+Income tax (expense)/benefit. Income tax benefit was RMB6.2 million (US$0.8 million), compared with income tax expense of RMB23.9 million in the same period of 2023.
+
+Net loss. Net loss was RMB608.1 million (US$83.7 million), narrowing by 61% from the same period of 2023.
+
+Adjusted net loss1. Adjusted net loss was RMB271.0 million (US$37.3 million), narrowing by 72% from the same period of 2023.
+
+Basic and diluted EPS and adjusted basic and diluted EPS1. Basic and diluted net loss per share were RMB1.46 (US$0.20) each, compared with RMB3.74 each in the same period of 2023. Adjusted basic and diluted net loss per share were RMB0.65 (US$0.09) each, compared with RMB2.33 each in the same period of 2023.
+
+Net cash provided by operating activities. Net cash provided by operating activities was RMB1.75 billion (US$240.9 million), compared with net cash used in operating activities of RMB21.2 million in the same period of 2023.
+
+Cash and cash equivalents, time deposits and short-term investments. As of June 30, 2024, the Company had cash and cash equivalents, time deposits and short-term investments of RMB13.91 billion (US$1.91 billion).
+
+Convertible Senior Notes. As of June 30, 2024, the aggregate outstanding principal amount of April 2026 Notes, 2027 Notes and December 2026 Notes was US$432.5 million (RMB3.08 billion).
+
+1 Adjusted loss from operations, adjusted net loss, and adjusted basic and diluted EPS are non-GAAP financial measures. For more information on non-GAAP financial measures, please see the section “Use of Non-GAAP Financial Measures” and the table captioned “Unaudited Reconciliations of GAAP and Non-GAAP Results.”
+
+Conference Call
+
+The Company’s management will host an earnings conference call at 8:00 AM U.S. Eastern Time on August 22, 2024 (8:00 PM Beijing/Hong Kong Time on August 22, 2024). Details for the conference call are as follows:
+
+Event Title:   Bilibili Inc. Second Quarter 2024 Earnings Conference Call
+
+Registration Link: https://register.vevent.com/register/BIe979e5cdf4c845e4949ba649f1d33fa5
+
+All participants must use the link provided above to complete the online registration process in advance of the conference call. Upon registering, each participant will receive a set of participant dial-in numbers and a personal PIN, which will be used to join the conference call.
+
+Additionally, a live webcast of the conference call will be available on the Company’s investor relations website at http://ir.bilibili.com, and a replay of the webcast will be available following the session.
+
+About Bilibili Inc.
+
+Bilibili is an iconic brand and a leading video community with a mission to enrich the everyday lives of young generations in China. Bilibili offers a wide array of video-based content with All the Videos You Like as its value proposition. Bilibili builds its community around aspiring users, high-quality content, talented content creators and the strong emotional bonds among them. Bilibili pioneered the “bullet chatting” feature, a live comment function that has transformed our users’ viewing experience by displaying the thoughts and feelings of audience members viewing the same video. The Company has now become the welcoming home of diverse interests among young generations in China and the frontier for promoting Chinese culture across the world.

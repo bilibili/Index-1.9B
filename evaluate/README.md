@@ -17,26 +17,96 @@ pip install -e .
 
 2. Data Download
 
+Please download from these URLs manually and place them in the correct directories as follows.
+
+needlebench：
+https://github.com/open-compass/opencompass/releases/download/0.2.4.rc1/OpenCompassData-complete-20240325.zip
+
+LongBench:
+https://huggingface.co/datasets/THUDM/LongBench/tree/main
+
+LEval:
+https://huggingface.co/datasets/L4NLP/LEval/tree/main
+
+The placement directories and locations of the respective datasets are as follows:
 ```bash
-# Download dataset to data/ folder
-wget https://github.com/open-compass/opencompass/releases/download/0.2.2.rc1/OpenCompassData-core-20240207.zip
-unzip OpenCompassData-core-20240207.zip
+data/
+├── LongBench/
+│   ├── LongBench.py
+│   ├── README.md
+│   └── data/
+├── LEval/
+│   ├── LEval.py
+│   ├── README.md
+│   ├── test_data.ipynb
+│   └── LEval/
+│       ├── Exam/
+│       └── Generation/
+└── needlebench/
+    ├── PaulGrahamEssays.jsonl
+    ├── multi_needle_reasoning_en.json
+    ├── multi_needle_reasoning_zh.json
+    ├── names.json
+    ├── needles.jsonl
+    ├── zh_finance.jsonl
+    ├── zh_game.jsonl
+    ├── zh_general.jsonl
+    ├── zh_government.jsonl
+    ├── zh_movie.jsonl
+    └── zh_tech.jsonl
 ```
 
 3. Evaluation
 
-   - Run with python command:
+   Run with python command:
 
       ```bash
-      python run.py --datasets mmlu_ppl ceval_ppl cmmlu_ppl ARC_c_ppl ARC_e_ppl hellaswag_ppl gsm8k_gen humaneval_gen \
-          --hf-path ./models/model_name \ 
-          --model-kwargs device_map='auto' trust_remote_code=True \
-          --tokenizer-kwargs padding_side='left' truncation='left' use_fast=False trust_remote_code=True \
-          --max-out-len 1 \
-          --max-seq-len 4096 \
-          --batch-size 64 \
-          --no-batch-padding \
-          --num-gpus 1
+    # mmlu_gen ceval_gen cmmlu_gen hellaswag_gen gsm8k_gen humaneval_gen
+    LLM_WORKER_MULTIPROC_METHOD=spawn CUDA_VISIBLE_DEVICES=0 python run.py \
+        --datasets mmlu_gen ceval_gen cmmlu_gen hellaswag_gen gsm8k_gen humaneval_gen \
+        --hf-path your_model_path/model_name \
+        --model-kwargs device_map='auto' trust_remote_code=True torch_dtype=torch.bfloat16 \
+        --tokenizer-kwargs padding_side='left' truncation='left' use_fast=False trust_remote_code=True \
+        --max-seq-len 4096 \
+        --batch-size 32 \
+        --hf-num-gpus 1 \
+        --mode all
+
+    # longbench
+    LLM_WORKER_MULTIPROC_METHOD=spawn CUDA_VISIBLE_DEVICES=0 python run.py \
+        --datasets longbench \
+        --summarizer longbench/summarizer \
+        --hf-path your_model_path/model_name \
+        --model-kwargs device_map='auto' trust_remote_code=True torch_dtype=torch.bfloat16 \
+        --tokenizer-kwargs padding_side='left' truncation='left' use_fast=False trust_remote_code=True \
+        --max-seq-len 32768 \
+        --batch-size 1 \
+        --hf-num-gpus 1 \
+        --mode all 
+
+    # leval
+    LLM_WORKER_MULTIPROC_METHOD=spawn CUDA_VISIBLE_DEVICES=0 python run.py \
+        --datasets leval \
+        --summarizer leval/summarizer \
+        --hf-path your_model_path/model_name \
+        --model-kwargs device_map='auto' trust_remote_code=True torch_dtype=torch.bfloat16 \
+        --tokenizer-kwargs padding_side='left' truncation='left' use_fast=False trust_remote_code=True \
+        --max-seq-len 32768 \
+        --batch-size 1 \
+        --hf-num-gpus 1 \
+        --mode all
+
+    # needlebench
+    LLM_WORKER_MULTIPROC_METHOD=spawn CUDA_VISIBLE_DEVICES=0 python run.py \
+        --datasets needlebench_single_32k \
+        --summarizer needlebench/needlebench_32k_summarizer \
+        --hf-path your_model_path/model_name \
+        --model-kwargs device_map='auto' trust_remote_code=True torch_dtype=torch.bfloat16 \
+        --tokenizer-kwargs padding_side='left' truncation='left' use_fast=False trust_remote_code=True \
+        --max-seq-len 32768 \
+        --batch-size 1 \
+        --hf-num-gpus 1 \
+        --mode all
       ```
 
    - Run with config file:

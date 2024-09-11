@@ -30,7 +30,7 @@ LongBench_multi_news_datasets = [
     dict(
         type=LongBenchmulti_newsDataset,
         abbr='LongBench_multi_news',
-        path='THUDM/LongBench',
+        path='./data/LongBench/',
         name='multi_news',
         reader_cfg=LongBench_multi_news_reader_cfg,
         infer_cfg=LongBench_multi_news_infer_cfg,

@@ -3,7 +3,7 @@ from opencompass.openicl.icl_retriever import ZeroRetriever
 from opencompass.openicl.icl_inferencer import ChatInferencer, GenInferencer
 from opencompass.openicl.icl_evaluator import LMEvaluator
 from opencompass.datasets import MTBenchDataset
-
+from opencompass.summarizers import MTBenchSummarizer
 
 subjective_reader_cfg = dict(
     input_columns=['dialogue', 'capability', 'system_prompt', 'prompt_template'],
@@ -11,11 +11,11 @@ subjective_reader_cfg = dict(
     )
 
 subjective_all_sets = [
-    "mtbench_0.0","mtbench_0.1","mtbench_0.7"
+    'mtbench_0.0','mtbench_0.1','mtbench_0.7'
 ]
-data_path ="data/subjective/mtbench"
+data_path ='data/subjective/mtbench'
 
-subjective_datasets = []
+mtbench_datasets = []
 
 for _name in subjective_all_sets:
     temperature = float(_name.split('_')[1])
@@ -39,26 +39,28 @@ for _name in subjective_all_sets:
                     dict(
                         role='SYSTEM',
                         fallback_role='HUMAN',
-                        prompt="{system_prompt}")
+                        prompt='{system_prompt}')
                 ],
                     round=[
                     dict(
                         role='HUMAN',
-                        prompt = "{prompt_template}"
+                        prompt = '{prompt_template}'
                     ),
                 ]),
             ),
         ),
-        pred_role="BOT",
+        pred_role='BOT',
     )
 
-    subjective_datasets.append(
+    mtbench_datasets.append(
         dict(
-            abbr=f"{_name}",
+            abbr=f'{_name}',
             type=MTBenchDataset,
             path=data_path,
             name=_name,
             reader_cfg=subjective_reader_cfg,
             infer_cfg=subjective_infer_cfg,
-            eval_cfg=subjective_eval_cfg
+            eval_cfg=subjective_eval_cfg,
+            mode='singlescore',
+            summarizer = dict(type=MTBenchSummarizer, judge_type='single')
         ))

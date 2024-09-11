@@ -27,7 +27,7 @@ LEval_narrativeqa_infer_cfg = dict(
 )
 
 LEval_narrativeqa_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_narrativeqa_datasets = [
     dict(
         type=LEvalNarrativeQADataset,
         abbr='LEval_narrativeqa',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='narrative_qa',
         reader_cfg=LEval_narrativeqa_reader_cfg,
         infer_cfg=LEval_narrativeqa_infer_cfg,

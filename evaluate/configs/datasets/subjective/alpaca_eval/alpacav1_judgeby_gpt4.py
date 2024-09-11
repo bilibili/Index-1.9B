@@ -11,11 +11,11 @@ subjective_reader_cfg = dict(
     )
 
 subjective_all_sets = [
-    "alpaca_eval",
+    'alpaca_eval',
 ]
 
 
-subjective_datasets = []
+alpacav1_datasets = []
 
 gpt4_prompt = """
 I want you to create a leaderboard of different of large-language models. To do so, I will give you the instructions (prompts) given to the models, and the responses of two models. Please rank the models based on which responses would be preferred by humans. All inputs and outputs should be python dictionaries.
@@ -54,7 +54,7 @@ for _name in subjective_all_sets:
                 template=dict(round=[
                     dict(
                         role='HUMAN',
-                        prompt="{question}"
+                        prompt='{question}'
                     ),
                 ]),
             ),
@@ -72,7 +72,7 @@ for _name in subjective_all_sets:
                     dict(
                         role='SYSTEM',
                         fallback_role='HUMAN',
-                        prompt="You are a helpful assistant, that ranks models by the quality of their answers.")
+                        prompt='You are a helpful assistant, that ranks models by the quality of their answers.')
                 ],
                     round=[
                     dict(
@@ -82,14 +82,14 @@ for _name in subjective_all_sets:
                 ]),
             ),
         ),
-        pred_role="BOT",
+        pred_role='BOT',
     )
 
-    subjective_datasets.append(
+    alpacav1_datasets.append(
         dict(
-            abbr=f"{_name}",
+            abbr=f'{_name}',
             type=SubjectiveCmpDataset,
-            path="./data/subjective/alpaca_eval",
+            path='./data/subjective/alpaca_eval',
             name=_name,
             reader_cfg=subjective_reader_cfg,
             infer_cfg=subjective_infer_cfg,

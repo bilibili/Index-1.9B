@@ -27,7 +27,7 @@ LEval_financialqa_infer_cfg = dict(
 )
 
 LEval_financialqa_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_financialqa_datasets = [
     dict(
         type=LEvalFinancialQADataset,
         abbr='LEval_financialqa',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='financial_qa',
         reader_cfg=LEval_financialqa_reader_cfg,
         infer_cfg=LEval_financialqa_infer_cfg,

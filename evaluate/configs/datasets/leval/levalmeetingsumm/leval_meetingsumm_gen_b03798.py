@@ -27,7 +27,7 @@ LEval_meetingsumm_infer_cfg = dict(
 )
 
 LEval_meetingsumm_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_meetingsumm_datasets = [
     dict(
         type=LEvalMeetingSummDataset,
         abbr='LEval_meeting_summ',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='meeting_summ',
         reader_cfg=LEval_meetingsumm_reader_cfg,
         infer_cfg=LEval_meetingsumm_infer_cfg,

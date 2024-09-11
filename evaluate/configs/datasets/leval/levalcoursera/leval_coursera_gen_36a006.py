@@ -28,7 +28,7 @@ LEval_coursera_infer_cfg = dict(
 )
 
 LEval_coursera_eval_cfg = dict(
-    evaluator=dict(type=AccEvaluator), 
+    evaluator=dict(type=AccEvaluator),
     pred_postprocessor=dict(type=first_capital_postprocess_multi),
     pred_role='BOT'
 )
@@ -37,7 +37,7 @@ LEval_coursera_datasets = [
     dict(
         type=LEvalCourseraDataset,
         abbr='LEval_coursera',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='coursera',
         reader_cfg=LEval_coursera_reader_cfg,
         infer_cfg=LEval_coursera_infer_cfg,

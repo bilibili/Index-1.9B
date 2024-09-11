@@ -27,7 +27,7 @@ LEval_ps_summ_infer_cfg = dict(
 )
 
 LEval_ps_summ_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_ps_summ_datasets = [
     dict(
         type=LEvalPaperAssistantDataset,
         abbr='LEval_paper_assistant',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='paper_assistant',
         reader_cfg=LEval_ps_summ_reader_cfg,
         infer_cfg=LEval_ps_summ_infer_cfg,

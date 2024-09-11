@@ -27,7 +27,7 @@ LEval_legalqa_infer_cfg = dict(
 )
 
 LEval_legalqa_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_legalqa_datasets = [
     dict(
         type=LEvalLegalContractQADataset,
         abbr='LEval_legal_contract_qa',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='legal_contract_qa',
         reader_cfg=LEval_legalqa_reader_cfg,
         infer_cfg=LEval_legalqa_infer_cfg,

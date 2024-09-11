@@ -28,7 +28,7 @@ LEval_quality_infer_cfg = dict(
 )
 
 LEval_quality_eval_cfg = dict(
-    evaluator=dict(type=AccEvaluator), 
+    evaluator=dict(type=AccEvaluator),
     pred_postprocessor=dict(type=first_capital_postprocess),
     pred_role='BOT'
 )
@@ -37,7 +37,7 @@ LEval_quality_datasets = [
     dict(
         type=LEvalQualityDataset,
         abbr='LEval_quality',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='quality',
         reader_cfg=LEval_quality_reader_cfg,
         infer_cfg=LEval_quality_infer_cfg,

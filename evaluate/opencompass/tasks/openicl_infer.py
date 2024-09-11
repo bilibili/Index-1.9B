@@ -14,7 +14,7 @@ from opencompass.registry import (ICL_INFERENCERS, ICL_PROMPT_TEMPLATES,
 from opencompass.tasks.base import BaseTask
 from opencompass.utils import (build_dataset_from_cfg, build_model_from_cfg,
                                get_infer_output_path, get_logger,
-                               task_abbr_from_cfg)
+                               model_abbr_from_cfg, task_abbr_from_cfg)
 
 
 @TASKS.register_module(force=(__name__ == '__main__'))  # A hack for script run
@@ -59,19 +59,23 @@ class OpenICLInferTask(BaseTask):
             python = sys.executable
             command = f'{python} {script_path} {cfg_path}'
 
+        print(f"command:{command}")
+        with open(cfg_path, 'r') as cfg_f:
+            cfg_content = cfg_f.read()
+            print(f"cfg_content:{cfg_content}")
+
         return template.format(task_cmd=command)
 
-    def run(self, cur_model=None):
+    def run(self, cur_model=None, cur_model_abbr=None):
         self.logger.info(f'Task {task_abbr_from_cfg(self.cfg)}')
         for model_cfg, dataset_cfgs in zip(self.model_cfgs, self.dataset_cfgs):
             self.max_out_len = model_cfg.get('max_out_len', None)
             self.batch_size = model_cfg.get('batch_size', None)
             self.min_out_len = model_cfg.get('min_out_len', None)
-            if cur_model:
+            if cur_model and cur_model_abbr == model_abbr_from_cfg(model_cfg):
                 self.model = cur_model
             else:
                 self.model = build_model_from_cfg(model_cfg)
-                cur_model = self.model
 
             for dataset_cfg in dataset_cfgs:
                 self.model_cfg = model_cfg
@@ -158,6 +162,7 @@ if __name__ == '__main__':
     args = parse_args()
     cfg = Config.fromfile(args.config)
     start_time = time.time()
+    print(f"cfg:{cfg}")
     inferencer = OpenICLInferTask(cfg)
     inferencer.run()
     end_time = time.time()

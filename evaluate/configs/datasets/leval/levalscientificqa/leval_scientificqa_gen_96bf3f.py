@@ -27,7 +27,7 @@ LEval_scientificqa_infer_cfg = dict(
 )
 
 LEval_scientificqa_eval_cfg = dict(
-    evaluator=dict(type=RougeEvaluator), 
+    evaluator=dict(type=RougeEvaluator),
     pred_role='BOT'
 )
 
@@ -35,7 +35,7 @@ LEval_scientificqa_datasets = [
     dict(
         type=LEvalScientificQADataset,
         abbr='LEval_scientificqa',
-        path='L4NLP/LEval',
+        path='./data/LEval/',
         name='scientific_qa',
         reader_cfg=LEval_scientificqa_reader_cfg,
         infer_cfg=LEval_scientificqa_infer_cfg,
