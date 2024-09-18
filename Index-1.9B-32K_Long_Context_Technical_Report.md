@@ -32,7 +32,7 @@ As shown in the figure below, our 1.9B-sized model's score even surpasses that o
 # Training Process
 
 Index-1.9B-32K was further trained based on the already open-source Index-1.9B, with two additional training stages:
-1. **Long PT**: Long continue Pre-Train, continual pre-training on long data.
+1. **Long PT**: Long continue Pre-Training, continual pre-training on long data.
 2. **Long SFT**: Supervised Fine-Tuning on long-text instructions.
 
    **\*(RLHF / DPO)**: Although we have experience with alignment training like RLHF and DPO, this version has not undergone RLHF/DPO training (RLHF/DPO will be added in future versions). The primary focus of this version is to hone the model's deep-level capabilities in Long Context.
@@ -73,7 +73,7 @@ The training process of Index-1.9B-32K is shown below:
 
 
 
-## Stage 1: Continue Pre-Training (32K)
+## Stage 1: Continued Pre-Training (32K)
 
 ### Training
 
@@ -212,7 +212,7 @@ We initially believed that the model's perception of text length should graduall
 
 ## Packing VS Non-Packing
 
-We thought that the packing method might affect gradient descent, especially when mixing instructions of different lengths. However, the experimental results showed minimal differences between the two training methods (less than 1%).
+We thought that the Doc-packing method might affect gradient descent, especially when mixing instructions of different lengths. However, the experimental results showed minimal differences between the two training methods (less than 1%).
 
 ## 1‰ Long Instruction SFT
 
