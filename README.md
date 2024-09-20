@@ -11,7 +11,7 @@
   QQ: <a href="media/group_qrcode.jpg" target="_blank">QQ Group</a> 
 </p>
 
-### Recent Updates
+### Recent Updates  :star2:
 1. Open-source 32K long-context model Index-1.9B-32K. Details: 📖 [Index-1.9B-32K_Long_Context_Technical_Report.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K_Long_Context_Technical_Report.md)
 2. Adapted to llamacpp and Ollama, see [Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
 3. Open source Checkpoint before Decay available for research, see [Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
@@ -147,7 +147,7 @@ curl http://127.0.0.1:8010/v1/chat/completions \
     }'
 ```
 
-# Index-1.9B-32K Long Text Model Introduction
+# Index-1.9B-32K Long Context Model Introduction
 ## Model Overview
 Index-1.9B-32K is a language model with only 1.9 billion parameters, yet it supports a context length of 32K (meaning this extremely small model can read documents of over 35,000 words in one go). The model has undergone Continue Pre-Training and Supervised Fine-Tuning (SFT) specifically for texts longer than 32K tokens, based on carefully curated long-text training data and self-built long-text instruction sets. The model is now open-source on both Hugging Face and ModelScope.
 
