@@ -11,7 +11,7 @@
   交流群: <a href="media/group_qrcode.jpg" target="_blank">QQ群</a> 
 </p>
 
-### 近期更新
+### 近期更新  :star2:
 1. 开源32K长上下文模型Index-1.9B-32K，详见：📖 [Index-1.9B-32K长上下文技术报告.md](https://github.com/bilibili/Index-1.9B/blob/main/Index-1.9B-32K长上下文技术报告.md)
 2. 已适配llamacpp和Ollama，详见[Index-1.9B-Chat-GGUF](https://huggingface.co/IndexTeam/Index-1.9B-Chat-GGUF)
 3. 开源Decay之前的Checkpoint供研究使用，详见[Index-1.9B-Constant-LR](https://huggingface.co/IndexTeam/Index-1.9B-Constant-LR)
