@@ -3,6 +3,12 @@
   Index-1.9B
 </h1>
 </div>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2607.09885"><img src="https://img.shields.io/badge/arXiv-2607.09885-b31b1b.svg" alt="Technical Report"></a>
+  <a href="https://huggingface.co/IndexTeam/Index-1.9B-Chat"><img src="https://img.shields.io/badge/HuggingFace-Index--1.9B--Chat-blue.svg" alt="Hugging Face"></a>
+</p>
+
 <p align="center">
   <a href="./README_zh.md" target="_blank">切换到中文</a> |
   Online:
@@ -273,10 +279,12 @@ The Index-1.9B model weights are **fully open** for academic research and suppor
 ## Citation
 If you think our work is helpful to you, please feel free to cite it!
 
-```
-@article{Index,
-  title={Index1.9B Technical Report},
-  year={2024}
+```bibtex
+@article{zhang2026index,
+  title={Index SLM Technical Report},
+  author={Zhang, Lusheng and He, Shien and Yan, Tianxing and Yu, Mengran and Cui, Ziang and Zhao, Kai and Liu, Xiaojing and Li, Tianjiao},
+  journal={arXiv preprint arXiv:2607.09885},
+  year={2026}
 }
 ```
 ## Extended Works
