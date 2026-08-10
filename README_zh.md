@@ -276,12 +276,15 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 ## 引用
 如果你觉得我们的工作对你有帮助，欢迎引用！
 
+技术报告：[https://arxiv.org/abs/2607.09885](https://arxiv.org/abs/2607.09885)
+
 ```bibtex
-@article{zhang2026index,
+@article{li2024index,
   title={Index SLM Technical Report},
-  author={Zhang, Lusheng and He, Shien and Yan, Tianxing and Yu, Mengran and Cui, Ziang and Zhao, Kai and Liu, Xiaojing and Li, Tianjiao},
+  author={Li, Tianjiao and Zhang, Lusheng and He, Shien and Liu, Xiaojing and Yan, Tianxing and Yu, Mengran and Cui, Ziang and Zhao, Kai and Liu, Yang and Li, Yuxin},
   journal={arXiv preprint arXiv:2607.09885},
-  year={2026}
+  year={2024},
+  url={https://arxiv.org/abs/2607.09885}
 }
 ```
 ## 二创
