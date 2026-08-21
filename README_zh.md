@@ -281,7 +281,7 @@ Index-1.9B 模型权重对学术研究**完全开放**，并且支持**免费商
 ```bibtex
 @article{li2024index,
   title={Index SLM Technical Report},
-  author={Li, Tianjiao and Zhang, Lusheng and He, Shien and Liu, Xiaojing and Yan, Tianxing and Yu, Mengran and Cui, Ziang and Zhao, Kai and Liu, Yang and Li, Yuxin},
+  author={Li, Tianjiao and Zhang, Lusheng and He, Shien and Liu, Xiaojing and Yan, Tianxing and Yu, Mengran and Cui, Ziang and Zhao, Kai and Wang, Xipeng and Liu, Yang and Li, Yuxin},
   journal={arXiv preprint arXiv:2607.09885},
   year={2024},
   url={https://arxiv.org/abs/2607.09885}
