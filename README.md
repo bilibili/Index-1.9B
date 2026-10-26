@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2607.09885"><img src="https://img.shields.io/badge/arXiv-2607.09885-b31b1b.svg" alt="Technical Report"></a>
-  <a href="https://huggingface.co/IndexTeam/Index-1.9B-Chat"><img src="https://img.shields.io/badge/HuggingFace-Index--1.9B--Chat-blue.svg" alt="Hugging Face"></a>
+  <a href="https://huggingface.co/collections/IndexTeam/index-19b-series"><img src="https://img.shields.io/badge/HuggingFace-Index--1.9B--Series-blue.svg" alt="Hugging Face"></a>
 </p>
 
 <p align="center">
